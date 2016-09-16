@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Libre-book</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset="UTF-8"> 
+	</head>
+	<body>
+		<div class="center title" id="title">
+			libr<font color="CadetBlue">e-book</font>
+		</div>
+
+		<div class="center">
+			Una piattaforma per la libera condivisione dei libri di testo <br><br><br>
+			<div class="right inputs">
+				<form action="book_sub.php">
+					<input name="isbn" placeholder="ISBN" class="tbox">
+					<input name="title" placeholder="Titolo" class="tbox">
+					<input name="subj" placeholder="Materia" class="tbox">
+					<select style="font-size: 15px" class="tbox" onchange="setClass()" id="class_select" name="class">
+	                    <option value="1m" style="font-size: 15px">1ᴬ media
+	                    <option value="2m" style="font-size: 15px">2ᴬ media
+	                    <option value="3m" style="font-size: 15px">3ᴬ media
+	                    <option value="1s" style="font-size: 15px">1ᴬ sup.
+	                    <option value="2s" style="font-size: 15px">2ᴬ sup.
+	                    <option value="3s" style="font-size: 15px">3ᴬ sup.
+	                    <option value="4s" style="font-size: 15px">4ᴬ sup.
+	                    <option value="5s" style="font-size: 15px">5ᴬ sup.
+	                </select>
+	                <input type="file" name="file_loc" class="tbox">
+	                <input type="submit" value="Invia">
+				</form>
+			</div>
+		</div>
+
+		<span class="bt-r footnote" id="foot">
+			DP Development 2016<br>GNU GPL3
+		</span>
+
+		<script src="submit_book.js"></script>
+	</body>
+</html>

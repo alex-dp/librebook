@@ -1,0 +1,51 @@
+* {
+	font-family: serif;
+} :not(input) {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input {
+	border: 1px solid CadetBlue;
+}
+
+.title {
+	font-size: 70px;
+	margin-top: 50px;
+}
+
+.center {
+	text-align: center;
+	align-content: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.inputs {
+	width: 33vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tbox {
+	min-width: 200px;
+	width: 33vw;
+	margin-bottom: 20px;
+}
+
+.bt-r {
+	position: absolute;
+	right: 4px;
+	bottom: 4px;
+	text-align: right;
+}
+
+.footnote {
+	font-size: 12px;
+}
