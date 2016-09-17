@@ -21,7 +21,7 @@ $password = substr($password, 0, 11);
 
 $isbn = $_GET['isbn'];
 
-if (!is_numeric($isbn) || strlen($isbn) != 13) {
+if ((!is_numeric($isbn) || strlen($isbn) != 13) && $isbn != "all") {
     echo "L'ISBN che hai fornito non è corretto.<br>";
     $go = 0;
 }
@@ -52,7 +52,7 @@ else
     $sql = "SELECT * FROM books WHERE isbn='" . $isbn . "';";
 
 $result = NULL;
-if(go == 1)
+if($go == 1)
     $result = $conn->query($sql);
 
 if (!is_null($result) && $result->num_rows > 0) {
