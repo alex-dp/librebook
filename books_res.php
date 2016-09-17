@@ -12,6 +12,8 @@
 
 <?php
 
+$go = 1;
+
 $servername = "localhost";
 $username = "dpdep";
 $password = fread(fopen("pw.txt", "r"), filesize("pw.txt"));
@@ -19,11 +21,15 @@ $password = substr($password, 0, 11);
 
 $isbn = $_GET['isbn'];
 
+if (!is_numeric($isbn) || strlen($isbn) != 13) {
+    echo "L'ISBN che hai fornito non è corretto.<br>";
+    $go = 0;
+}
+
 $conn = mysqli_connect($servername, $username, $password);
 
-if (!$conn) {
+if (!$conn)
     die("Connection failed: " . mysqli_connect_error());
-}
 
 $sql = "USE book_entries;";
 mysqli_query($conn, $sql);
@@ -40,15 +46,16 @@ $sql = "CREATE TABLE books (
 
 if (!mysqli_query($conn, $sql)); #table exists
 
-if ($isbn === 'all') {
+if ($isbn === 'all')
     $sql = "SELECT * FROM books";
-} else {
+else
     $sql = "SELECT * FROM books WHERE isbn='" . $isbn . "';";
-}
 
-$result = $conn->query($sql);
+$result = NULL;
+if(go == 1)
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if (!is_null($result) && $result->num_rows > 0) {
 
     while($row = $result->fetch_assoc()) {
 
@@ -62,9 +69,7 @@ if ($result->num_rows > 0) {
 
         echo "</table><br>";
     }
-} else {
-    echo "0 results";
-}
+} else echo "Nessun risultato.";
 
 $conn->close();
 
