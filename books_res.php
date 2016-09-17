@@ -16,7 +16,8 @@ $go = 1;
 
 $servername = "localhost";
 $username = "dpdep";
-$password = fread(fopen("pw.txt", "r"), filesize("pw.txt"));
+$pw_loc = "/home/dpdep/private/pw.txt";
+$password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
 $password = substr($password, 0, 11);
 
 $isbn = $_GET['isbn'];
