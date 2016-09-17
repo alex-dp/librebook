@@ -6,4 +6,4 @@ Librebook is a free and open-source textbook-sharing platform, exclusively for I
 <br>
 >Q: Why is PHP not disclosed?
 
-A: *PHP does not run on your machine, and it contains sensitive data.*
+A: *PHP does not run on your machine, and it may contain sensitive data.*

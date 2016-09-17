@@ -2,16 +2,16 @@
 	<head>
 		<title>Libre-book</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<meta charset="UTF-8"> 
+		<meta charset="UTF-8">
 	</head>
 	<body>
 		<div class="center title" id="title">
-			libr<font color="CadetBlue">e-book</font>
+			libr<font color="CadetBlue" class="title">e-book</font>
 		</div>
 
 		<div class="center">
 			Una piattaforma per la libera condivisione dei libri di testo <br><br><br>
-			<div class="right inputs">
+			<div class="inputs">
 				<form action="books_res.php">
 					<input type="text" class="tbox" placeholder="Ricerca per ISBN" name="isbn"/>
 				</form>
@@ -20,6 +20,8 @@
 				<input type="button" value="Condividi un libro" id="submit_book">
 			</div>
 		</div>
+
+		<a href="books_res.php?isbn=all">vedi tutti</a>
 
 		<span class="bt-r footnote" id="foot">
 			DP Development 2016<br>GNU GPL3

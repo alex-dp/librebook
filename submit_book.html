@@ -12,7 +12,7 @@
 		<div class="center">
 			Una piattaforma per la libera condivisione dei libri di testo <br><br><br>
 			<div class="right inputs">
-				<form action="book_sub.php">
+				<form action="book_sub.php" method="post" enctype="multipart/form-data">
 					<input name="isbn" placeholder="ISBN" class="tbox">
 					<input name="title" placeholder="Titolo" class="tbox">
 					<input name="subj" placeholder="Materia" class="tbox">
@@ -26,8 +26,8 @@
 	                    <option value="4s" style="font-size: 15px">4ᴬ sup.
 	                    <option value="5s" style="font-size: 15px">5ᴬ sup.
 	                </select>
-	                <input type="file" name="file_loc" class="tbox">
-	                <input type="submit" value="Invia">
+	                <input type="file" name="file_loc" id="file_loc" class="tbox">
+	                <input type="submit" value="Invia" name="submit" placeholder="Seleziona un file">
 				</form>
 			</div>
 		</div>

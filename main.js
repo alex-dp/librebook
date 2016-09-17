@@ -7,9 +7,9 @@ document.getElementById("title").onclick = function () {
 };
 
 document.getElementById("donate").onclick = function () {
-	window.location.replace("https://www.paypal.me/makeitrainonme");
+	location.hrf = "https://www.paypal.me/makeitrainonme";
 };
 
 document.getElementById("foot").onclick = function () {
-	window.location.replace("https://github.com/deeepaaa/librebook");
+	location.href = "https://github.com/deeepaaa/librebook";
 };
