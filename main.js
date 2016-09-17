@@ -7,7 +7,7 @@ document.getElementById("title").onclick = function () {
 };
 
 document.getElementById("donate").onclick = function () {
-	location.hrf = "https://www.paypal.me/makeitrainonme";
+	location.href = "https://www.paypal.me/makeitrainonme";
 };
 
 document.getElementById("foot").onclick = function () {
