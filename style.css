@@ -1,5 +1,5 @@
 * {
-	font-family: serif;
+	font-family: monospace;
 } :not(input) {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -15,8 +15,9 @@ input, table {
 }
 
 .title {
-	font-size: 70px;
+	font-size: 80px;
 	margin-top: 50px;
+	letter-spacing: -6px;
 }
 
 .center {

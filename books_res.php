@@ -22,7 +22,7 @@ $password = substr($password, 0, 11);
 $isbn = $_GET['isbn'];
 
 if ((!is_numeric($isbn) || strlen($isbn) != 13) && $isbn != "all") {
-    echo "L'ISBN che hai fornito non è corretto.<br>";
+    echo "<div class=\"big\">L'ISBN che hai fornito non è corretto.<br></div>";
     $go = 0;
 }
 
@@ -69,7 +69,7 @@ if (!is_null($result) && $result->num_rows > 0) {
 
         echo "</table><br>";
     }
-} else echo "Nessun risultato.";
+} else echo "<div class=\"big\">Nessun risultato.</div>";
 
 $conn->close();
 
