@@ -87,7 +87,10 @@ else {
 		VALUES ('{$isbn}', '{$title}', '{$subj}', '{$class}', '{$target_file}');";
 
 		if ($conn->query($sql) !== TRUE)
-		    echo "Error: " . $sql . "<br>" . $conn->error;
+		    echo "C'è stato un errore nell'inserimento di questo libro nel database.<br>
+				Inviare i seguenti dettagli a dpdevelopment@librebook.xyz potrebbe essere d'aiuto.<br>
+				<b>SQL: </b>" . $sql . "<br>
+				<b>E: </b>" . $conn->error;
 
 		$conn->close();
     } else echo "C'è stato un errore nel caricamento.<br>";
