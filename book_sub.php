@@ -14,8 +14,7 @@
 
 <?php
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["file_loc"]["name"]);
+$target_file = "uploads/" . basename($_FILES["file_loc"]["name"]);
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
 $val_ext = array("zip", "epub", "pbd", "fb2", "pdf");
@@ -38,6 +37,10 @@ if(isset($_POST["submit"]) && !in_array($ft, $val_ext)) {
 if (!is_numeric($isbn) || strlen($isbn) != 13) {
 	echo "L'ISBN che hai fornito non è corretto.<br>";
 	$uploadOk = 0;
+}
+
+if (strlen($target_file) >= 200) {
+	$target_file = substr(str_replace($ft, "", $target_file), 0, 180) . ".{$ft}";
 }
 
 while (file_exists($target_file))
