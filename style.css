@@ -12,6 +12,10 @@ input, table {
 	font-size: 16px;
 }
 
+.fixed-width {
+	width: 400px;
+}
+
 .title {
 	font-size: 80px;
 	margin-top: 50px;

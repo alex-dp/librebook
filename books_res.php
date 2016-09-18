@@ -60,7 +60,7 @@ if (!is_null($result) && $result->num_rows > 0) {
 
     while($row = $result->fetch_assoc()) {
 
-        echo "<table>";
+        echo "<table class=\"fixed-width\">";
         echo "<tr><th>ISBN:</th><td>" . $row["isbn"] . "</td>";
         echo "<tr><th>Titolo:</th><td>" . $row["title"] . "</td>";
         echo "<tr><th>Materia:</th><td>" . $row["subj"] . "</td>";
