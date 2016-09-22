@@ -1,4 +1,6 @@
-*:not(input) {
+*{
+	font-family: monospace;
+}:not(input) {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -19,7 +21,6 @@ input, table {
 .title {
 	font-size: 80px;
 	letter-spacing: -6px;
-	font-family: serif;
 
 	background-image: url('favicon.png');
 	background-size: 50px;
@@ -40,14 +41,14 @@ input, table {
 }
 
 .inputs {
-	width: 33vw;
+	width: 45vw;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .tbox {
 	min-width: 200px;
-	width: 33vw;
+	width: 45vw;
 	margin-bottom: 20px;
 }
 
@@ -73,5 +74,22 @@ table {
 
 th {
 	text-align: right;
-	width: 130px;
+	width: 100px;
+}
+
+.sides {
+	width: 45vw;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#donate {
+	position: absolute;
+	left: 0;
+}
+
+#submit_book {
+	position: absolute;
+	right: 0;
 }

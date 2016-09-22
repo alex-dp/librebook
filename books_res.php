@@ -51,7 +51,7 @@ if (!mysqli_query($conn, $sql)); #table exists
 if ($isbn === 'all')
     $sql = "SELECT * FROM books";
 else
-    $sql = "SELECT * FROM books WHERE isbn='" . $isbn . "';";
+    $sql = "SELECT * FROM books WHERE isbn='{$isbn}';";
 
 $result = NULL;
 if($go == 1)
@@ -67,11 +67,35 @@ if (!is_null($result) && $result->num_rows > 0) {
         echo "<tr><th>Materia:</th><td>" . $row["subj"] . "</td>";
         echo "<tr><th>Classe:</th><td>" . $row["class"] . "</td>";
         echo "<tr><th>Download:</th><td>" . "<a href = \"http://librebook.xyz/{$row["file_loc"]}\">(qui)</a></td>";
-        echo "<tr><th>Data:</th><td>" . $row["up_time"] . "</td>";
 
         echo "</table><br>";
     }
 } else echo "<div class=\"big\">Nessun risultato.</div>";
+
+if (isset($_GET['rm']))
+    $rm = $_GET['rm'];
+if (isset($_GET['pw']))
+    $pw = $_GET['pw'];
+
+if (isset($rm) && is_numeric($rm) && isset($pw) && $pw == $password) {
+    $sql = "SELECT * FROM books WHERE isbn='{$rm}';";
+
+    $result = $conn->query($sql);
+
+    if (!is_null($result) && $result->num_rows > 0)
+        while($row = $result->fetch_assoc())
+            unlink(dirname(__FILE__) . "/" . $row["file_loc"]);
+
+    $sql = "DELETE FROM books WHERE isbn={$rm};";
+
+    if($conn->query($sql))
+        echo "La richiesta di rimozione del libro {$rm} è stata eseguita.";
+
+} else if (isset($rm) && !isset($pw))
+    echo "Serve una password per rimuovere un libro!";
+
+else if (isset($pw) && $pw != $password)
+    echo "La password è errata!";
 
 $conn->close();
 
