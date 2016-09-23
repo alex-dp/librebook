@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'GothamRounded';
+    src: url('gotham-rounded-medium.otf');
+}
+
 *{
-	font-family: monospace;
+	font-family: 'GothamRounded';
 }:not(input) {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -9,9 +14,23 @@
 	user-select: none;
 }
 
+body {
+	margin: 0;
+}
+
+td {
+	-webkit-touch-callout: all;
+	-webkit-user-select: all;
+	-khtml-user-select: all;
+	-moz-user-select: all;
+	-ms-user-select: all;
+	user-select: all;
+}
+
 input, table {
 	border: 1px solid CadetBlue;
 	font-size: 16px;
+	background-color: #FFFFFF;
 }
 
 .fixed-width {
@@ -27,6 +46,7 @@ input, table {
 	background-position: top;
 	background-repeat: no-repeat;
 	padding-top: 50px;
+	margin-top: 16px;
 }
 
 .center {
