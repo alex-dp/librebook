@@ -33,13 +33,19 @@ input, table {
 	background-color: #FFFFFF;
 }
 
+input::focus {
+	outline: 0;
+}::-moz-focus-inner {
+	border: 0;
+}
+
 .fixed-width {
 	width: 400px;
 }
 
 .title {
 	font-size: 80px;
-	letter-spacing: -6px;
+	letter-spacing: -8px;
 
 	background-image: url('favicon.png');
 	background-size: 50px;
@@ -47,6 +53,8 @@ input, table {
 	background-repeat: no-repeat;
 	padding-top: 50px;
 	margin-top: 16px;
+	
+	min-width: 350px;
 }
 
 .center {
@@ -64,12 +72,14 @@ input, table {
 	width: 45vw;
 	margin-left: auto;
 	margin-right: auto;
+	min-width: 350px;
 }
 
 .tbox {
 	min-width: 200px;
 	width: 45vw;
 	margin-bottom: 20px;
+	min-width: 350px;
 }
 
 .bt-r {
@@ -77,6 +87,12 @@ input, table {
 	right: 4px;
 	bottom: 4px;
 	text-align: right;
+}
+
+.bt-l {
+	position: fixed;
+	left: 4px;
+	bottom: 4px;
 }
 
 .footnote {
@@ -102,6 +118,7 @@ th {
 	position: relative;
 	margin-right: auto;
 	margin-left: auto;
+	min-width: 350px;
 }
 
 #donate {
