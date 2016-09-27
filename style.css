@@ -121,6 +121,14 @@ th {
 	min-width: 350px;
 }
 
+.faqs {
+	margin: 8px;
+}
+
+.q {
+	margin-bottom: 2px;
+}
+
 #donate {
 	position: absolute;
 	left: 0;
