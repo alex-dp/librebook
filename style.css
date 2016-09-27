@@ -103,6 +103,10 @@ input::focus {
 	font-size: 18px;
 }
 
+.very-big {
+	font-size: 48px;
+}
+
 table {
 	margin-left: auto;
 	margin-right: auto;
@@ -113,6 +117,10 @@ th {
 	width: 100px;
 }
 
+h3 {
+	margin-left: 8px;
+}
+
 .sides {
 	width: 45vw;
 	position: relative;
@@ -121,12 +129,14 @@ th {
 	min-width: 350px;
 }
 
-.faqs {
-	margin: 8px;
-}
-
 .q {
 	margin-bottom: 2px;
+}
+
+.thirty {
+	-ms-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
 }
 
 #donate {
