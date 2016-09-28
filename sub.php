@@ -89,6 +89,7 @@ else {
 
 		if ($conn->query($sql) !== TRUE)
 		    echo "C'è stato un errore nell'inserimento di questo libro nel database.<br>
+				È probabile che sia già stato inserito in precedenza.<br><br>
 				Inviare i seguenti dettagli a dpdevelopment@librebook.xyz potrebbe essere d'aiuto.<br>
 				<b>SQL: </b>" . $sql . "<br>
 				<b>E: </b>" . $conn->error;
@@ -106,7 +107,7 @@ else {
 </span>
 
 <span class="bt-l footnote">
-	<a href="faq.php">Contatti - FAQ</a>
+	<a href="faq.php">Contatti — FAQ</a>
 </span>
 
 <script src="main.js"></script>
