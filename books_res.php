@@ -106,7 +106,7 @@ $conn->close();
 </span>
 
 <span class="bt-l footnote">
-    <a href="faq.html">Contatti - FAQ</a>
+    <a href="faq.php">Contatti - FAQ</a>
 </span>
 
 <script src="main.js"></script>

@@ -18,13 +18,19 @@ body {
 	margin: 0;
 }
 
-td {
+td, code {
 	-webkit-touch-callout: all;
 	-webkit-user-select: all;
 	-khtml-user-select: all;
 	-moz-user-select: all;
 	-ms-user-select: all;
 	user-select: all;
+}
+
+code {
+	font-family: monospace !important;
+	font-size: 18px;
+	background-color: #e0e0e0;
 }
 
 input, table {
