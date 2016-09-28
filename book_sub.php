@@ -106,8 +106,7 @@ else {
 </span>
 
 <span class="bt-l footnote">
-	<a href="faq.html">FAQ</a><br>
-	<a href="contatti.html">Contatti</a>
+	<a href="faq.html">Contatti - FAQ</a>
 </span>
 
 <script src="main.js"></script>
