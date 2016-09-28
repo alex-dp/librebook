@@ -105,7 +105,7 @@ else {
 	DP Development 2016<br>GNU GPL3
 </span>
 
-<script src="submit_book.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>
