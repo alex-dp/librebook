@@ -105,6 +105,11 @@ else {
 	DP Development 2016<br>GNU GPL3
 </span>
 
+<span class="bt-l footnote">
+	<a href="faq.html">FAQ</a><br>
+	<a href="contatti.html">Contatti</a>
+</span>
+
 <script src="main.js"></script>
 
 </body>
