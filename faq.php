@@ -40,7 +40,7 @@
 		<blockquote>
 			Questa è la parte difficile. I libri sono generalmente distribuiti in un formato proprietario
 			(soggiogante, non libero). Servirà l'impegno di tutti per liberarli e liberarci. Se hai trovato
-			un metodo efficace ed estendibile ad altri libri o pensi di poterlo fare ma non hai gli strumenti, Contattami
+			un metodo efficace ed estendibile ad altri libri o pensi di poterlo fare ma non hai gli strumenti, contattami
 		</blockquote>
 
 		<h3 class="q">Quali metodi di pagamento accetti per le donazioni?</h3>
