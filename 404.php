@@ -33,6 +33,12 @@ include_once 'languages/' . $locale . '.php';
 			DP Development 2016<br>GNU GPL3
 		</span>
 
+		<span class="bt-l footnote">
+			<a href="faq.php">
+				<?php echo $lang['cont_faq'];?>
+			</a>
+		</span>
+
 		<script src="main.js"></script>
 	</body>
 </html>
