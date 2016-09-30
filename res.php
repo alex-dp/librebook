@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_GET['lang']))
+    $locale = substr($_GET['lang'], 0, 2);
+
+else
+    $locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+if(!in_array($locale, array('en', 'it')))
+    $locale = 'en';
+
+include_once 'languages/' . $locale . '.php';
+?>
+
 <html>
 <head>
     <title>Libre-book</title>
@@ -24,7 +38,7 @@ $password = substr($password, 0, 11);
 $isbn = $_GET['isbn'];
 
 if ((!is_numeric($isbn) || strlen($isbn) != 13) && $isbn != "all") {
-    echo "<div class=\"big\">L'ISBN che hai fornito non è corretto.<br></div>";
+    echo "<div class=\"big\">{$lang['wrong_isbn']}<br></div>";
     $go = 0;
 }
 
@@ -63,14 +77,14 @@ if (!is_null($result) && $result->num_rows > 0) {
 
         echo "<table class=\"fixed-width\">";
         echo "<tr><th>ISBN:</th><td>" . $row["isbn"] . "</td>";
-        echo "<tr><th>Titolo:</th><td>" . $row["title"] . "</td>";
-        echo "<tr><th>Materia:</th><td>" . $row["subj"] . "</td>";
-        echo "<tr><th>Classe:</th><td>" . $row["class"] . "</td>";
-        echo "<tr><th>Download:</th><td>" . "<a href = \"{$row["file_loc"]}\">(qui)</a></td>";
+        echo "<tr><th>{$lang['title']}:</th><td>" . $row["title"] . "</td>";
+        echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
+        echo "<tr><th>{$lang['grade']}:</th><td>" . $row["class"] . "</td>";
+        echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row["file_loc"]}\">({$lang['here']})</a></td>";
 
         echo "</table><br>";
     }
-} else echo "<div class=\"big\">Nessun risultato.</div>";
+} else echo "<div class=\"big\">{$lang['no_res']}.</div>";
 
 if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $rm = $_GET['rm'];
@@ -88,16 +102,16 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
         $sql = "DELETE FROM books WHERE isbn={$rm};";
 
         if($conn->query($sql))
-            echo "La richiesta di rimozione del libro {$rm} è stata eseguita.";
+            echo "{$lang['rem_req']} {$rm} {$lang['was_exec']}.";
 
     }
 }
 
 if (isset($rm) && !isset($pw))
-    echo "Serve una password per rimuovere un libro!";
+    echo $lang['need_pass'];
 
 if (isset($pw) && $pw != $password)
-    echo "La password è errata!";
+    echo $lang['wrong_pass'];
 
 $conn->close();
 
@@ -108,7 +122,9 @@ $conn->close();
 </span>
 
 <span class="bt-l footnote">
-    <a href="faq.php">Contatti — FAQ</a>
+    <a href="faq.php">
+        <?php echo $lang['cont_faq']; ?>
+    </a>
 </span>
 
 <script src="main.js"></script>

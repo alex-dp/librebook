@@ -3,5 +3,5 @@ document.getElementById("foot").onclick = function () {
 };
 
 document.getElementById("title").onclick = function () {
-    location.href = "index.html"
+    location.href = "index.php"
 };

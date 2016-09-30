@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_GET['lang']))
+	$locale = substr($_GET['lang'], 0, 2);
+
+else
+	$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+if(!in_array($locale, array('en', 'it')))
+	$locale = 'en';
+
+include_once 'languages/' . $locale . '.php';
+?>
+
 <html>
 	<head>
 		<title>Libre-book</title>
@@ -11,8 +25,8 @@
 		</div>
 
 		<div class="center big">
-			Questa pagina non esiste<br>
-			:(
+			<?php echo $lang['page_not_exists'];?>
+			<br>:(
 		</div>
 
 		<span class="bt-r footnote" id="foot">

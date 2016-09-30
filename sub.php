@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_GET['lang']))
+	$locale = substr($_GET['lang'], 0, 2);
+
+else
+	$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+if(!in_array($locale, array('en', 'it')))
+	$locale = 'en';
+
+include_once 'languages/' . $locale . '.php';
+?>
+
 <html>
 <head>
 	<title>Libre-book</title>
@@ -31,12 +45,12 @@ $title = str_replace($strip, "", $title);
 $subj = str_replace($strip, "", $subj);
 
 if(isset($_POST["submit"]) && !in_array($ft, $val_ext)) {
-	echo "Il file che stai cercando di caricare non sembra essere un ebook.<br>";
+	echo "{$lang['not_ebook']}<br>";
 	$uploadOk = 0;
 }
 
 if (!is_numeric($isbn) || strlen($isbn) != 13) {
-	echo "L'ISBN che hai fornito non è corretto.<br>";
+	echo "{$lang['wrong_isbn']}<br>";
 	$uploadOk = 0;
 }
 
@@ -48,15 +62,15 @@ while (file_exists($target_file))
     $target_file = str_replace($ft, "", $target_file) . rand() . ".{$ft}";
 
 if ($_FILES["file_loc"]["size"] > 500000000) {
-    echo "Carica un file più piccolo di 500MB.<br>";
+    echo $lang['too big'] . "<br>";
     $uploadOk = 0;
 }
 
 if ($uploadOk == 0)
-    echo "Il tuo file non è stato caricato.<br>";
+    echo $lang['not_uploaded'] . "<br>";
 else {
     if (move_uploaded_file($_FILES["file_loc"]["tmp_name"], $target_file)) {
-        echo "Il file ". basename($_FILES["file_loc"]["name"]). " è stato caricato.<br>";
+        echo "{$lang['your_file']} ". basename($_FILES["file_loc"]["name"]). " {$lang['was_uploaded']}.<br>";
 
         $servername = "localhost";
 		$username = "dpdep";
@@ -88,14 +102,14 @@ else {
 		VALUES ('{$isbn}', '{$title}', '{$subj}', '{$class}', '{$target_file}');";
 
 		if ($conn->query($sql) !== TRUE)
-		    echo "C'è stato un errore nell'inserimento di questo libro nel database.<br>
-				È probabile che sia già stato inserito in precedenza.<br><br>
-				Inviare i seguenti dettagli a dpdevelopment@librebook.xyz potrebbe essere d'aiuto.<br>
+		    echo "{$lang['ins_error']}<br>
+				{$lang['already_there']}<br><br>
+				{$lang['send_details']}<br>
 				<b>SQL: </b>" . $sql . "<br>
 				<b>E: </b>" . $conn->error;
 
 		$conn->close();
-    } else echo "C'è stato un errore nel caricamento.<br>";
+    } else echo "{$lang['load_error']}<br>";
 }
 
 ?>
@@ -107,7 +121,9 @@ else {
 </span>
 
 <span class="bt-l footnote">
-	<a href="faq.php">Contatti — FAQ</a>
+	<a href="faq.php">
+		<?php echo $lang['cont_faq']; ?>
+	</a>
 </span>
 
 <script src="main.js"></script>
