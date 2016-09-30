@@ -52,7 +52,7 @@ $lang['questions'] = array(
 	'Chi sei?' => 'Potete contattarmi all\'indirizzo <br>
 			<a href="mailto:dpdevelopment@librebook.xyz">dpdevelopment@librebook.xyz</a>',
 
-	'Quali file posso caricare?' => 'Le estensioni accettate sono zip, epub, pbd, fb2, pdf.
+	'Quali file posso caricare?' => 'Le estensioni accettate sono zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
 			Contattatemi se pensate che siano insufficienti. <br>
 			Il limite massimo per la dimensione dei file è di 500MB. Ad ogni modo, è suggerita la compressione.',
 

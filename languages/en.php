@@ -52,7 +52,7 @@ $lang['questions'] = array(
 	'Who are you?' => 'You may get to me via <br>
 			<a href="mailto:dpdevelopment@librebook.xyz">dpdevelopment@librebook.xyz</a>',
 
-	'What kind of files can i share?' => 'The allowed formats are zip, epub, pbd, fb2, pdf.
+	'What kind of files can I share?' => 'The allowed formats are zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
 			Hmu if you think they\'re insufficient. <br>
 			The maximum file size is 500MB. Anyhow, I suggest using compression.',
 

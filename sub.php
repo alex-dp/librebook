@@ -32,7 +32,7 @@ include_once 'languages/' . $locale . '.php';
 $target_file = "uploads/" . basename($_FILES["file_loc"]["name"]);
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
-$val_ext = array("zip", "epub", "pbd", "fb2", "pdf");
+$val_ext = array("zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu", "azw", "tar.xz", "tar.gz", "rar");
 
 $isbn = substr($_POST['isbn'], 0, 13);
 $title = substr($_POST['title'], 0, 30);
