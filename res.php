@@ -81,7 +81,7 @@ if (!is_null($result) && $result->num_rows > 0) {
         echo "<tr><th>ISBN:</th><td>" . $row["isbn"] . "</td>";
         echo "<tr><th>{$lang['title']}:</th><td>" . $row["title"] . "</td>";
         echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
-        echo "<tr><th>{$lang['grade']}:</th><td>" . $row["class"] . "</td>";
+        echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row["class"]] ?: end($lang['classes'])) . "</td>";
         echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row["file_loc"]}\">({$lang['here']})</a></td>";
 
         echo "</table><br>";

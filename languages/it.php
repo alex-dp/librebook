@@ -2,6 +2,7 @@
 
 $lang = array();
 
+$lang['description']	= 'Un posto per condividere liberamente tutti i tuoi libri preferiti';
 $lang['subtitle'] 		= 'Una piattaforma per la libera condivisione dei libri';
 $lang['sub_spec'] 		= 'Puoi condividere qualsiasi tipo di libro.';
 $lang['isbn_search'] 	= 'Ricerca per ISBN';
@@ -68,5 +69,7 @@ $lang['questions'] = array(
 
 	'Quali metodi di pagamento accetti per le donazioni?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> e Bitcoin a questo indirizzo:'
 	);
+
+$lang['keywords'] = array('libro', 'libri', 'gratis', 'condivisione', 'foss', 'ebook', 'e-book', 'libero');
 
 ?>

@@ -18,6 +18,13 @@ include_once 'languages/' . $locale . '.php';
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="icon" type="image/png" href="favicon.png">
 		<meta charset="UTF-8">
+		<?php echo
+			'<meta name="description" content="' . $lang['description'] . '">';
+			echo '<meta name="keywords" content="';
+			foreach ($lang['keywords'] as $word)
+				echo $word . ', ';
+			echo '">';
+		?>
 	</head>
 	<body>
 		<div class="center title" id="title">
