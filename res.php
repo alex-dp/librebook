@@ -22,7 +22,9 @@ include_once 'languages/' . $locale . '.php';
 <body>
 
 <div class="center title" id="title">
-    libr<font color="CadetBlue">e-book</font>
+    <a href="index.php" class="no-dec">
+        libr<font color="CadetBlue">e-book</font>
+    </a>
 </div>
 
 <?php
@@ -35,7 +37,7 @@ $pw_loc = "/home/dpdep/private/pw.txt";
 $password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
 $password = substr($password, 0, 11);
 
-$isbn = $_GET['isbn'];
+$isbn = str_replace('-', '', $_GET['isbn']);
 
 if ((!is_numeric($isbn) || strlen($isbn) != 13) && $isbn != "all") {
     echo "<div class=\"big\">{$lang['wrong_isbn']}<br></div>";
@@ -118,7 +120,9 @@ $conn->close();
 ?>
 
 <span class="bt-r footnote" id="foot">
-    DP Development 2016<br>GNU GPL3
+    <a href="https://github.com/deeepaaa/librebook">
+        DP Development 2016<br>GNU GPL3
+    </a>
 </span>
 
 <span class="bt-l footnote">
@@ -126,8 +130,5 @@ $conn->close();
         <?php echo $lang['cont_faq']; ?>
     </a>
 </span>
-
-<script src="main.js"></script>
-
 </body>
 </html>

@@ -21,7 +21,9 @@ include_once 'languages/' . $locale . '.php';
 	</head>
 	<body>
 		<div class="center title" id="title">
-			libr<font color="CadetBlue">e-book</font>
+			<a href="index.php" class="no-dec">
+				libr<font color="CadetBlue">e-book</font>
+			</a>
 		</div>
 
 		<div class="center">
@@ -49,7 +51,9 @@ include_once 'languages/' . $locale . '.php';
 		</div>
 
 		<span class="bt-r footnote" id="foot">
-			DP Development 2016<br>GNU GPL3
+			<a href="https://github.com/deeepaaa/librebook">
+				DP Development 2016<br>GNU GPL3
+			</a>
 		</span>
 
 		<span class="bt-l footnote">
@@ -57,7 +61,5 @@ include_once 'languages/' . $locale . '.php';
 				<?php echo $lang['cont_faq'];?>
 			</a>
 		</span>
-
-		<script src="main.js"></script>
 	</body>
 </html>

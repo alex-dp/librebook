@@ -11,7 +11,7 @@ $lang['cont_faq'] 		= 'Contatti — FAQ';
 
 $lang['not_ebook'] 		= 'Il file che stai cercando di caricare non sembra essere un ebook.';
 $lang['wrong_isbn'] 	= 'L\'ISBN che hai fornito non è corretto.';
-$lang['too_big'] 		= 'Carica un file più piccolo di 500MB.';
+$lang['too_big'] 		= 'Carica un file più piccolo di 50MB.';
 $lang['not_uploaded'] 	= 'Il tuo file non è stato caricato.';
 $lang['your_file'] 		= 'Il file';
 $lang['was_uploaded'] 	= 'è stato caricato';
@@ -54,7 +54,7 @@ $lang['questions'] = array(
 
 	'Quali file posso caricare?' => 'Le estensioni accettate sono zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
 			Contattatemi se pensate che siano insufficienti. <br>
-			Il limite massimo per la dimensione dei file è di 500MB. Ad ogni modo, è suggerita la compressione.',
+			Il limite massimo per la dimensione dei file è di 50MB. Ad ogni modo, è suggerita la compressione.',
 
 	'Qual è la causa di Libre-book e perché è così importante?' => 'I contenuti digitali sono sempre stati soggetti alle critiche degli utenti, perché essi, spesso,
 			sono distribuiti in un formato che nega all\'utente le <a href="https://www.gnu.org/philosophy/free-sw.html.it">Libertà</a> che gli

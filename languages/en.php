@@ -11,7 +11,7 @@ $lang['cont_faq'] 		= 'Contacts — FAQ';
 
 $lang['not_ebook'] 		= 'What you\'re trying to upload doesn\'t seem to be an ebook.';
 $lang['wrong_isbn'] 	= 'The ISBN you provided is not correct.';
-$lang['too_big'] 		= 'Upload a file smaller than 500MB.';
+$lang['too_big'] 		= 'Upload a file smaller than 50MB.';
 $lang['not_uploaded'] 	= 'Your file was not uploaded.';
 $lang['your_file'] 		= 'Your file';
 $lang['was_uploaded'] 	= 'was uploaded successfully';
@@ -54,7 +54,7 @@ $lang['questions'] = array(
 
 	'What kind of files can I share?' => 'The allowed formats are zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
 			Hmu if you think they\'re insufficient. <br>
-			The maximum file size is 500MB. Anyhow, I suggest using compression.',
+			The maximum file size is 50MB. Anyhow, I suggest using compression.',
 
 	'What is Libre-book\'s cause and why does it matter?' => 'Users have always criticised digital content which is
 			released in a format that denies the user his <a href="https://www.gnu.org/philosophy/free-sw.html">Freedoms</a>.

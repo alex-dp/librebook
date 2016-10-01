@@ -22,7 +22,9 @@ include_once 'languages/' . $locale . '.php';
 <body>
 
 <div class="center title" id="title">
-    libr<font color="CadetBlue">e-book</font>
+	<a href="index.php" class="no-dec">
+		libr<font color="CadetBlue">e-book</font>
+	</a>
 </div>
 
 <div class="center big">
@@ -34,7 +36,7 @@ $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
 $val_ext = array("zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu", "azw", "tar.xz", "tar.gz", "rar");
 
-$isbn = substr($_POST['isbn'], 0, 13);
+$isbn = str_replace('-', '', $_POST['isbn']);
 $title = substr($_POST['title'], 0, 30);
 $subj = substr($_POST['subj'], 0, 30);
 $class = $_POST['class'];
@@ -61,7 +63,7 @@ if (strlen($target_file) >= 200) {
 while (file_exists($target_file))
     $target_file = str_replace($ft, "", $target_file) . rand() . ".{$ft}";
 
-if ($_FILES["file_loc"]["size"] > 500000000) {
+if ($_FILES["file_loc"]["size"] > 50000000) {
     echo $lang['too big'] . "<br>";
     $uploadOk = 0;
 }
@@ -117,7 +119,9 @@ else {
 </div>
 
 <span class="bt-r footnote" id="foot">
-	DP Development 2016<br>GNU GPL3
+	<a href="https://github.com/deeepaaa/librebook">
+		DP Development 2016<br>GNU GPL3
+	</a>
 </span>
 
 <span class="bt-l footnote">
@@ -125,8 +129,5 @@ else {
 		<?php echo $lang['cont_faq']; ?>
 	</a>
 </span>
-
-<script src="main.js"></script>
-
 </body>
 </html>
