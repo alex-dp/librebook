@@ -31,6 +31,10 @@ include_once 'languages/' . $locale . '.php';
 
 <?php
 
+function startsWith($haystack, $needle) {
+	return (substr($haystack, 0, strlen($needle)) === $needle);
+}
+
 $target_file = "uploads/" . basename($_FILES["file_loc"]["name"]);
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
@@ -66,6 +70,13 @@ while (file_exists($target_file))
 if ($_FILES["file_loc"]["size"] > 50000000) {
     echo $lang['too big'] . "<br>";
     $uploadOk = 0;
+}
+
+if (startsWith($inbn, '1111') || startsWith($inbn, '0000') ||
+		startsWith($inbn, '1234') || strtoupper($title) == $title) {
+	
+	echo $lang['spam'] . "<br>";
+	$uploadOk = 0;
 }
 
 if ($uploadOk == 0)

@@ -13,6 +13,7 @@ $lang['cont_faq'] 		= 'Contatti — FAQ';
 $lang['not_ebook'] 		= 'Il file che stai cercando di caricare non sembra essere un ebook.';
 $lang['wrong_isbn'] 	= 'L\'ISBN che hai fornito non è corretto.';
 $lang['too_big'] 		= 'Carica un file più piccolo di 50MB.';
+$lang['spam']			= 'Questo libro sembra proprio essere spam.';
 $lang['not_uploaded'] 	= 'Il tuo file non è stato caricato.';
 $lang['your_file'] 		= 'Il file';
 $lang['was_uploaded'] 	= 'è stato caricato';

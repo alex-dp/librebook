@@ -13,6 +13,7 @@ $lang['cont_faq'] 		= 'Contacts — FAQ';
 $lang['not_ebook'] 		= 'What you\'re trying to upload doesn\'t seem to be an ebook.';
 $lang['wrong_isbn'] 	= 'The ISBN you provided is not correct.';
 $lang['too_big'] 		= 'Upload a file smaller than 50MB.';
+$lang['spam']			= 'This book sure looks like spam.';
 $lang['not_uploaded'] 	= 'Your file was not uploaded.';
 $lang['your_file'] 		= 'Your file';
 $lang['was_uploaded'] 	= 'was uploaded successfully';
