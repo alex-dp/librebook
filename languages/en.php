@@ -23,7 +23,7 @@ $lang['send_details'] 	= 'Sending the following details to dpdevelopment@librebo
 $lang['load_error'] 	= 'Something went wrong while uploading.';
 
 $lang['title'] 			= 'Title';
-$lang['subject'] 		= 'Subject';
+$lang['subject'] 		= 'Topic';
 $lang['grade'] 			= 'Grade';
 $lang['dl']				= 'File';
 $lang['here']			= 'Here';
@@ -60,9 +60,9 @@ $lang['questions'] = array(
 
 	'What is Libre-book\'s cause and why does it matter?' => 'Users have always criticised digital content which is
 			released in a format that denies the user his <a href="https://www.gnu.org/philosophy/free-sw.html">Freedoms</a>.
-			I have yet to find a publisher which respects our rights. This is an injustice and it needs to be stopped.',
+			Few publishers respect our rights. This is an injustice and it needs to be stopped.',
 
-	'Where can I find truly free books to upload?' => 'That\'s the hard part. Books are distributed in a proprietary (non-free, subjugating) format.
+	'Where can I find truly free books to upload?' => 'If the book you want to upload is distributed in a proprietary (non-free, subjugating) format, it might be hard to obtain a shareable format. This is common with textbooks.
 			We\'ll need everyone\'s effort to liberate them and liberate us. If you think you\'ve found an effective and extensible method, please contact me.',
 
 	'Which payment methods do you accept for donations?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> and Bitcoin to here:'

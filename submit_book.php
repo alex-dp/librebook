@@ -30,7 +30,7 @@ include_once 'languages/' . $locale . '.php';
 			<?php echo $lang['subtitle'];?>
 			<br><br><br>
 			<div class="right inputs">
-				<form action="sub.php" method="post" enctype="multipart/form-data">
+				<form action="sub.php" method="post" enctype="multipart/form-data" autocomplete="off">
 					<?php
 					echo '<input name="isbn" placeholder="ISBN" class="tbox">
 						<input name="title" placeholder="' . $lang['title'] . '" class="tbox">
@@ -38,6 +38,8 @@ include_once 'languages/' . $locale . '.php';
 					?>
 					<select style="font-size: 15px" class="tbox" name="class">
 	                    <?php
+
+	                    echo '<option value="" disabled selected>' . $lang["grade"];
 
 	                    foreach ($lang['classes'] as $key => $value)
 	                    	echo '<option value="' . $key . '" style="font-size: 15px">' . $value;

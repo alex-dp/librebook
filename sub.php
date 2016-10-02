@@ -43,7 +43,7 @@ $val_ext = array("zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu", "azw", "tar
 $isbn = str_replace('-', '', $_POST['isbn']);
 $title = substr($_POST['title'], 0, 30);
 $subj = substr($_POST['subj'], 0, 30);
-$class = $_POST['class'];
+$class = $_POST['class'] ?: end($lang['classes']);
 
 $strip = array("'", "(", ")", ";");
 
@@ -74,7 +74,7 @@ if ($_FILES["file_loc"]["size"] > 50000000) {
 
 if (startsWith($inbn, '1111') || startsWith($inbn, '0000') ||
 		startsWith($inbn, '1234') || strtoupper($title) == $title) {
-	
+
 	echo $lang['spam'] . "<br>";
 	$uploadOk = 0;
 }

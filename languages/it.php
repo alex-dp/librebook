@@ -23,7 +23,7 @@ $lang['send_details'] 	= 'Inviare i seguenti dettagli a dpdevelopment@librebook.
 $lang['load_error'] 	= 'C\'è stato un errore nel caricamento.';
 
 $lang['title'] 			= 'Titolo';
-$lang['subject'] 		= 'Materia';
+$lang['subject'] 		= 'Argomento';
 $lang['grade'] 			= 'Classe';
 $lang['dl']				= 'Download';
 $lang['here']			= 'Qui';
@@ -60,12 +60,12 @@ $lang['questions'] = array(
 
 	'Qual è la causa di Libre-book e perché è così importante?' => 'I contenuti digitali sono sempre stati soggetti alle critiche degli utenti, perché essi, spesso,
 			sono distribuiti in un formato che nega all\'utente le <a href="https://www.gnu.org/philosophy/free-sw.html.it">Libertà</a> che gli
-			sono dovute. Nessuno degli enti che distribuiscono (previo pagamento) i libri digitali lo fa
-			rispettando il nostro diritto alla Libertà. Questa è un\'ingiustizia a cui intento
+			sono dovute. Solo alcuni degli enti che distribuiscono (previo pagamento) i libri digitali lo fa
+			rispettando il nostro diritto alla Libertà. Questa è un\'ingiustizia a cui intendo
 			(contribuire a) porre fine.',
 
-	'Dove trovo i libri in un formato libero per poterli caricare?' => 'Questa è la parte difficile. I libri sono generalmente distribuiti in un formato proprietario
-			(soggiogante, non libero). Servirà l\'impegno di tutti per liberarli e liberarci. Se hai trovato
+	'Dove trovo i libri in un formato libero per poterli caricare?' => 'Se il libro che vuoi condividere è distribuito in un formato proprietario
+			(soggiogante, non libero), potrebbe essere difficile ottenere una copia condivisibile. Ciò è comune con i libri di testo. Servirà l\'impegno di tutti per liberarli e liberarci. Se hai trovato
 			un metodo efficace ed estendibile ad altri libri o pensi di poterlo fare ma non hai gli strumenti, contattami',
 
 	'Quali metodi di pagamento accetti per le donazioni?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> e Bitcoin a questo indirizzo:'

@@ -37,7 +37,7 @@ include_once 'languages/' . $locale . '.php';
 			<?php echo $lang['subtitle']; ?> <br>
 			<font size="2"><?php echo $lang['sub_spec']; ?> </font> <br><br>
 			<div class="inputs">
-				<form action="res.php">
+				<form action="res.php" autocomplete="off">
 					<?php
 						echo '<input type="text" class="tbox" placeholder="' . $lang["isbn_search"] . '" name="isbn"/>';
 					?>
