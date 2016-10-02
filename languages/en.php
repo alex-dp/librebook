@@ -13,7 +13,7 @@ $lang['cont_faq'] 		= 'Contacts — FAQ';
 $lang['not_ebook'] 		= 'What you\'re trying to upload doesn\'t seem to be an ebook.';
 $lang['wrong_isbn'] 	= 'The ISBN you provided is not correct.';
 $lang['too_big'] 		= 'Upload a file smaller than 50MB.';
-$lang['spam']			= 'This book sure looks like spam.';
+$lang['spam']			= 'This book looks like <a href="spam.php">spam</a>.';
 $lang['wait']			= 'You must wait two minutes between books.';
 $lang['not_uploaded'] 	= 'Your file was not uploaded.';
 $lang['your_file'] 		= 'Your file';
@@ -51,6 +51,9 @@ $lang['send'] = 'Send';
 
 $lang['faq'] = 'FAQ';
 
+$lang['spam_useless'] = 'Why spam is useless';
+$lang['spam_explain'] = 'All of the time you spend spamming is effectively wasted: a simple script is enough to delete hundreds of book entries in a matter of seconds.';
+
 $lang['questions'] = array(
 	'Who are you?' => 'You may get to me via <br>
 			<a href="mailto:dpdevelopment@librebook.xyz">dpdevelopment@librebook.xyz</a>',
@@ -66,7 +69,9 @@ $lang['questions'] = array(
 	'Where can I find truly free books to upload?' => 'If the book you want to upload is distributed in a proprietary (non-free, subjugating) format, it might be hard to obtain a shareable copy. This is common with textbooks.
 			We\'ll need everyone\'s effort to liberate them and liberate us. If you think you\'ve found an effective and extensible method, please contact me.',
 
-	'Which payment methods do you accept for donations?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> and Bitcoin to here:'
+	'How do you use cookies?' => 'At the moment, "<code>upload</code>" is the only cookie i use. It serves as a spam filter.',
+	
+	'Which payment methods do you accept for donations?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> and Bitcoin to here:',
 	);
 
 $lang['keywords'] = array('book', 'books', 'free', 'sharing', 'foss', 'ebook', 'ebooks');

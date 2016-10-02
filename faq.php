@@ -51,7 +51,9 @@ include_once 'languages/' . $locale . '.php';
 		?>
 
 		<span class="bt-r footnote" id="foot">
-			DP Development 2016<br>GNU GPL3
+			<a href="https://github.com/deeepaaa/librebook">
+				DP Development 2016<br>GNU GPL3
+			</a>
 		</span>
 	</body>
 </html>

@@ -13,7 +13,7 @@ $lang['cont_faq'] 		= 'Contatti — FAQ';
 $lang['not_ebook'] 		= 'Il file che stai cercando di caricare non sembra essere un ebook.';
 $lang['wrong_isbn'] 	= 'L\'ISBN che hai fornito non è corretto.';
 $lang['too_big'] 		= 'Carica un file più piccolo di 50MB.';
-$lang['spam']			= 'Questo libro sembra proprio essere spam.';
+$lang['spam']			= 'Questo libro sembra proprio essere <a href="spam.php">spam</a>.';
 $lang['wait']			= 'Devi aspettare due minuti tra un libro e l\'altro.';
 $lang['not_uploaded'] 	= 'Il tuo file non è stato caricato.';
 $lang['your_file'] 		= 'Il file';
@@ -51,6 +51,9 @@ $lang['send'] = 'Invia';
 
 $lang['faq'] = 'Domande frequenti';
 
+$lang['spam_useless'] = 'Lo spam è inutile';
+$lang['spam_explain'] = 'Tutto il tempo che passi a spammare è sprecato: un semplice script è sufficiente ad eliminare centinaia di libri in pochi secondi.';
+
 $lang['questions'] = array(
 	'Chi sei?' => 'Potete contattarmi all\'indirizzo <br>
 			<a href="mailto:dpdevelopment@librebook.xyz">dpdevelopment@librebook.xyz</a>',
@@ -69,7 +72,9 @@ $lang['questions'] = array(
 			(soggiogante, non libero), potrebbe essere difficile ottenere una copia condivisibile. Ciò è comune con i libri di testo. Servirà l\'impegno di tutti per liberarli e liberarci. Se hai trovato
 			un metodo efficace ed estendibile ad altri libri o pensi di poterlo fare ma non hai gli strumenti, contattami',
 
-	'Quali metodi di pagamento accetti per le donazioni?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> e Bitcoin a questo indirizzo:'
+	'Come utilizzi i cookie?' => 'Al momento <code>upload</code> è l\'unico cookie che uso, e serve come filtro per lo spam',
+
+	'Quali metodi di pagamento accetti per le donazioni?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> e Bitcoin a questo indirizzo:',
 	);
 
 $lang['keywords'] = array('libro', 'libri', 'gratis', 'condivisione', 'foss', 'ebook', 'e-book', 'libero');

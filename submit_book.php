@@ -32,6 +32,7 @@ include_once 'languages/' . $locale . '.php';
 			<div class="right inputs">
 				<form action="sub.php" method="post" enctype="multipart/form-data" autocomplete="off">
 					<?php
+					echo '<label for="class">' . $lang['class'] . '</label>';
 					echo '<input name="isbn" placeholder="ISBN" class="tbox">
 						<input name="title" placeholder="' . $lang['title'] . '" class="tbox">
 						<input name="subj" placeholder="' . $lang['subject'] . '" class="tbox">';
