@@ -37,12 +37,7 @@ $pw_loc = "/home/dpdep/private/pw.txt";
 $password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
 $password = substr($password, 0, 11);
 
-$isbn = str_replace('-', '', $_GET['isbn']);
-
-if ((!is_numeric($isbn) || strlen($isbn) != 13) && $isbn != "all") {
-    echo "<div class=\"big\">{$lang['wrong_isbn']}<br></div>";
-    $go = 0;
-}
+$search = str_replace('-', '', $_GET['isbn']);
 
 $conn = mysqli_connect($servername, $username, $password);
 
@@ -64,10 +59,10 @@ $sql = "CREATE TABLE books (
 
 if (!mysqli_query($conn, $sql)); #table exists
 
-if ($isbn === 'all')
+if ($search === 'all')
     $sql = "SELECT * FROM books";
 else
-    $sql = "SELECT * FROM books WHERE isbn='{$isbn}';";
+    $sql = "SELECT * FROM books WHERE isbn='{$search}' OR title LIKE '%{$search}%' OR subj LIKE '%{$search}%';";
 
 $result = NULL;
 if($go == 1)

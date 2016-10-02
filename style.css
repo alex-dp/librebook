@@ -5,13 +5,6 @@
 
 *{
 	font-family: 'GothamRounded';
-}:not(input) {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 a {
@@ -43,15 +36,6 @@ input::focus {
 	outline: 0;
 }::-moz-focus-inner {
 	border: 0;
-}
-
-td, code {
-	-webkit-touch-callout: all;
-	-webkit-user-select: all;
-	-khtml-user-select: all;
-	-moz-user-select: all;
-	-ms-user-select: all;
-	user-select: all;
 }
 
 table {
