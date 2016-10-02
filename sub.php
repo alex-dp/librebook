@@ -76,7 +76,8 @@ if ($_FILES["file_loc"]["size"] > 50000000) {
 
 if (startsWith($isbn, '1111') || startsWith($isbn, '0000') ||
 		startsWith($isbn, '1234') || strtoupper($title) == $title ||
-		startsWith(strtolower($_FILES["file_loc"]["name"]), 'ebook')) {
+		startsWith(strtolower($_FILES["file_loc"]["name"]), 'ebook') ||
+		isset($_GET['filter'])) {
 
 	echo '<font color="red">' . $lang['spam'] . '</font><br>';
 	$uploadOk = 0;

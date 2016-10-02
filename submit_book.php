@@ -48,6 +48,7 @@ include_once 'languages/' . $locale . '.php';
 	                    ?>
 	                </select>
 	                <input type="file" name="file_loc" id="file_loc" class="tbox">
+	                <input name="filter" style="display: none">
 	                <?php echo '<input type="submit" value="' . $lang['send'] . '" name="submit">';?>
 				</form>
 			</div>
