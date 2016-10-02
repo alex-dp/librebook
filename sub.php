@@ -1,4 +1,5 @@
 <?php
+setcookie("upload", 1, time() + 120);
 
 if (isset($_GET['lang']))
 	$locale = substr($_GET['lang'], 0, 2);
@@ -38,7 +39,8 @@ function startsWith($haystack, $needle) {
 $target_file = "uploads/" . basename($_FILES["file_loc"]["name"]);
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
-$val_ext = array("zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu", "azw", "tar.xz", "tar.gz", "rar");
+$val_ext = array("zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
+	"azw", "azw2", "azw3", "tar.xz", "tar.gz", "rar");
 
 $isbn = str_replace('-', '', $_POST['isbn']);
 $title = substr($_POST['title'], 0, 30);
@@ -72,10 +74,16 @@ if ($_FILES["file_loc"]["size"] > 50000000) {
     $uploadOk = 0;
 }
 
-if (startsWith($inbn, '1111') || startsWith($inbn, '0000') ||
-		startsWith($inbn, '1234') || strtoupper($title) == $title) {
+if (startsWith($isbn, '1111') || startsWith($isbn, '0000') ||
+		startsWith($isbn, '1234') || strtoupper($title) == $title ||
+		startsWith(strtolower($_FILES["file_loc"]["name"]), 'ebook')) {
 
-	echo $lang['spam'] . "<br>";
+	echo '<font color="red">' . $lang['spam'] . '</font><br>';
+	$uploadOk = 0;
+}
+
+if (isset($_COOKIE['upload']) && $_COOKIE['upload'] == 1) {
+	echo '<font color="red">' . $lang['wait'] . '</font><br>';
 	$uploadOk = 0;
 }
 

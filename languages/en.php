@@ -14,6 +14,7 @@ $lang['not_ebook'] 		= 'What you\'re trying to upload doesn\'t seem to be an ebo
 $lang['wrong_isbn'] 	= 'The ISBN you provided is not correct.';
 $lang['too_big'] 		= 'Upload a file smaller than 50MB.';
 $lang['spam']			= 'This book sure looks like spam.';
+$lang['wait']			= 'You must wait two minutes between books.';
 $lang['not_uploaded'] 	= 'Your file was not uploaded.';
 $lang['your_file'] 		= 'Your file';
 $lang['was_uploaded'] 	= 'was uploaded successfully';
@@ -62,7 +63,7 @@ $lang['questions'] = array(
 			released in a format that denies the user his <a href="https://www.gnu.org/philosophy/free-sw.html">Freedoms</a>.
 			Few publishers respect our rights. This is an injustice and it needs to be stopped.',
 
-	'Where can I find truly free books to upload?' => 'If the book you want to upload is distributed in a proprietary (non-free, subjugating) format, it might be hard to obtain a shareable format. This is common with textbooks.
+	'Where can I find truly free books to upload?' => 'If the book you want to upload is distributed in a proprietary (non-free, subjugating) format, it might be hard to obtain a shareable copy. This is common with textbooks.
 			We\'ll need everyone\'s effort to liberate them and liberate us. If you think you\'ve found an effective and extensible method, please contact me.',
 
 	'Which payment methods do you accept for donations?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> and Bitcoin to here:'
