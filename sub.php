@@ -1,5 +1,5 @@
 <?php
-setcookie("upload", 1, time() + 120);
+setcookie("upload", 1, time() + 60);
 
 if (isset($_GET['lang']))
 	$locale = substr($_GET['lang'], 0, 2);
@@ -39,7 +39,7 @@ function startsWith($haystack, $needle) {
 $target_file = "uploads/" . basename($_FILES["file_loc"]["name"]);
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
-$val_ext = array("zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
+$val_ext = array("7z", "zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
 	"azw", "azw2", "azw3", "tar.xz", "tar.gz", "rar");
 
 $isbn = str_replace('-', '', $_POST['isbn']);
@@ -52,12 +52,12 @@ $strip = array("'", "(", ")", ";");
 $title = str_replace($strip, "", $title);
 $subj = str_replace($strip, "", $subj);
 
-if(isset($_POST["submit"]) && !in_array($ft, $val_ext)) {
+if(!in_array($ft, $val_ext)) {
 	echo "{$lang['not_ebook']}<br>";
 	$uploadOk = 0;
 }
 
-if (!is_numeric($isbn) || strlen($isbn) != 13) {
+if (!is_numeric($isbn) || !in_array(strlen($isbn), array(10,13))) {
 	echo "{$lang['wrong_isbn']}<br>";
 	$uploadOk = 0;
 }

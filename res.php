@@ -37,7 +37,7 @@ $pw_loc = "/home/dpdep/private/pw.txt";
 $password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
 $password = substr($password, 0, 11);
 
-$search = str_replace('-', '', $_GET['isbn']);
+$search = str_replace('-', '', $_GET['search']);
 
 $conn = mysqli_connect($servername, $username, $password);
 
@@ -68,7 +68,11 @@ $result = NULL;
 if($go == 1)
     $result = $conn->query($sql);
 
-if (!is_null($result) && $result->num_rows > 0) {
+echo '<div class="center">';
+echo ($result->num_rows ?: 0) . ' ' . $lang['results'];
+echo '</div><br>';
+
+if (!is_null($result) && $result->num_rows > 0)
 
     while($row = $result->fetch_assoc()) {
 
@@ -76,12 +80,11 @@ if (!is_null($result) && $result->num_rows > 0) {
         echo "<tr><th>ISBN:</th><td>" . $row["isbn"] . "</td>";
         echo "<tr><th>{$lang['title']}:</th><td>" . $row["title"] . "</td>";
         echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
-        echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row["class"]] ?: end($lang['classes'])) . "</td>";
+        echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>";
         echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row["file_loc"]}\">({$lang['here']})</a></td>";
 
         echo "</table><br>";
     }
-} else echo "<div class=\"big\">{$lang['no_res']}.</div>";
 
 if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $rm = $_GET['rm'];

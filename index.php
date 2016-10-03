@@ -39,7 +39,7 @@ include_once 'languages/' . $locale . '.php';
 			<div class="inputs">
 				<form action="res.php" autocomplete="off">
 					<?php
-						echo '<input type="text" class="tbox" placeholder="' . $lang["search"] . '" name="isbn"/>';
+						echo '<input type="text" class="tbox" placeholder="' . $lang["search"] . '" name="search"/>';
 					?>
 				</form>
 			</div>

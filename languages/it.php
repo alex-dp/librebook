@@ -14,7 +14,7 @@ $lang['not_ebook'] 		= 'Il file che stai cercando di caricare non sembra essere 
 $lang['wrong_isbn'] 	= 'L\'ISBN che hai fornito non è corretto.';
 $lang['too_big'] 		= 'Carica un file più piccolo di 50MB.';
 $lang['spam']			= 'Questo libro sembra proprio essere <a href="spam.php">spam</a>.';
-$lang['wait']			= 'Devi aspettare due minuti tra un libro e l\'altro.';
+$lang['wait']			= 'Devi aspettare un minuto tra un libro e l\'altro.';
 $lang['not_uploaded'] 	= 'Il tuo file non è stato caricato.';
 $lang['your_file'] 		= 'Il file';
 $lang['was_uploaded'] 	= 'è stato caricato';
@@ -28,7 +28,7 @@ $lang['subject'] 		= 'Argomento';
 $lang['grade'] 			= 'Classe';
 $lang['dl']				= 'Download';
 $lang['here']			= 'Qui';
-$lang['no_res'] 		= 'Nessun risultato';
+$lang['results'] 		= 'risultati';
 $lang['rem_req'] 		= 'La richiesta di rimozione del libro';
 $lang['was_exec'] 		= 'è stata eseguita';
 $lang['need_pass'] 		= 'Serve una password per rimuovere un libro!';
@@ -58,7 +58,7 @@ $lang['questions'] = array(
 	'Chi sei?' => 'Potete contattarmi all\'indirizzo <br>
 			<a href="mailto:dpdevelopment@librebook.xyz">dpdevelopment@librebook.xyz</a>',
 
-	'Quali file posso caricare?' => 'Le estensioni accettate sono zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
+	'Quali file posso caricare?' => 'Le estensioni accettate sono 7z, zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
 			Contattatemi se pensate che siano insufficienti. <br>
 			Il limite massimo per la dimensione dei file è di 50MB. Ad ogni modo, è suggerita la compressione.',
 

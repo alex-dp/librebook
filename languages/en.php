@@ -14,7 +14,7 @@ $lang['not_ebook'] 		= 'What you\'re trying to upload doesn\'t seem to be an ebo
 $lang['wrong_isbn'] 	= 'The ISBN you provided is not correct.';
 $lang['too_big'] 		= 'Upload a file smaller than 50MB.';
 $lang['spam']			= 'This book looks like <a href="spam.php">spam</a>.';
-$lang['wait']			= 'You must wait two minutes between books.';
+$lang['wait']			= 'You must wait one minute between books.';
 $lang['not_uploaded'] 	= 'Your file was not uploaded.';
 $lang['your_file'] 		= 'Your file';
 $lang['was_uploaded'] 	= 'was uploaded successfully';
@@ -28,7 +28,7 @@ $lang['subject'] 		= 'Topic';
 $lang['grade'] 			= 'Grade';
 $lang['dl']				= 'File';
 $lang['here']			= 'Here';
-$lang['no_res'] 		= 'No results';
+$lang['results'] 		= 'results';
 $lang['rem_req'] 		= 'Your request to remove book #';
 $lang['was_exec'] 		= 'was executed';
 $lang['need_pass'] 		= 'You need a password in order to remove a book!';
@@ -58,7 +58,7 @@ $lang['questions'] = array(
 	'Who are you?' => 'You may get to me via <br>
 			<a href="mailto:dpdevelopment@librebook.xyz">dpdevelopment@librebook.xyz</a>',
 
-	'What kind of files can I share?' => 'The allowed formats are zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
+	'What kind of files can I share?' => 'The allowed formats are 7z, zip, epub, pbd, fb2, pdf, mobi, djvu, azw, tar.xz, tar.gz, rar.
 			Hmu if you think they\'re insufficient. <br>
 			The maximum file size is 50MB. Anyhow, I suggest using compression.',
 
