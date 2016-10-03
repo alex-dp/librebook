@@ -43,7 +43,7 @@ $val_ext = array("7z", "zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
 	"azw", "azw2", "azw3", "tar.xz", "tar.gz", "rar");
 
 $isbn = str_replace('-', '', $_POST['isbn']);
-$title = substr($_POST['title'], 0, 30);
+$title = substr($_POST['title'], 0, 150);
 $subj = substr($_POST['subj'], 0, 30);
 $class = $_POST['class'] ?: end($lang['classes']);
 
@@ -62,15 +62,17 @@ if (!is_numeric($isbn) || !in_array(strlen($isbn), array(10,13))) {
 	$uploadOk = 0;
 }
 
-if (strlen($target_file) >= 200) {
+if (strlen($target_file) >= 200)
 	$target_file = substr(str_replace($ft, "", $target_file), 0, 180) . ".{$ft}";
-}
 
 while (file_exists($target_file))
     $target_file = str_replace($ft, "", $target_file) . rand() . ".{$ft}";
 
 if ($_FILES["file_loc"]["size"] > 50000000) {
     echo $lang['too big'] . "<br>";
+    $uploadOk = 0;
+} elseif ($_FILES["file_loc"]["size"] < 500) {
+    echo '<font color="red">' . $lang['spam'] . '</font><br>';
     $uploadOk = 0;
 }
 
@@ -110,7 +112,7 @@ else {
 
 		$sql = "CREATE TABLE books (
 			isbn VARCHAR(13) NOT NULL PRIMARY KEY,
-			title VARCHAR(30) NOT NULL,
+			title VARCHAR(150) NOT NULL,
 			subj VARCHAR(30) NOT NULL,
 			class VARCHAR(2),
 			file_loc VARCHAR(200),

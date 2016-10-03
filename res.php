@@ -49,7 +49,7 @@ mysqli_query($conn, $sql);
 
 $sql = "CREATE TABLE books (
 	isbn VARCHAR(13) NOT NULL PRIMARY KEY,
-	title VARCHAR(30) NOT NULL,
+	title VARCHAR(150) NOT NULL,
 	subj VARCHAR(30) NOT NULL,
 	class VARCHAR(2),
 	file_loc VARCHAR(200),
