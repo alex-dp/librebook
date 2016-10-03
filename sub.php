@@ -42,7 +42,7 @@ $ft = pathinfo($target_file, PATHINFO_EXTENSION);
 $val_ext = array("7z", "zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
 	"azw", "azw2", "azw3", "tar.xz", "tar.gz", "rar");
 
-$isbn = str_replace('-', '', $_POST['isbn']);
+$isbn = str_replace(array('-', ' '), '', $_POST['isbn']);
 $title = substr($_POST['title'], 0, 150);
 $subj = substr($_POST['subj'], 0, 30);
 $class = $_POST['class'] ?: end($lang['classes']);

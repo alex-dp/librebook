@@ -38,6 +38,7 @@ $password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
 $password = trim($password);
 
 $search = str_replace('-', '', $_GET['search']);
+$search = str_replace("'", '', $search);
 
 $conn = mysqli_connect($servername, $username, $password);
 

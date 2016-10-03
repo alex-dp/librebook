@@ -1,3 +1,7 @@
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
 function IsNumeric(val) {
     return Number(parseFloat(val))==val;
 }
@@ -5,7 +9,10 @@ function IsNumeric(val) {
 function checkisbn() {
 	e = document.getElementById('isbn')
 
-	if (IsNumeric(e.value) && (e.value.length === 10 || e.value.length === 13))
+	sane = replaceAll(e.value, '-', '')
+	sane = replaceAll(sane, ' ', '')
+
+	if (IsNumeric(sane) && (sane.length === 10 || sane.length === 13))
 		e.style.border = "1px solid green"
 	else e.style.border = "1px solid red"
 }
