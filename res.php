@@ -124,9 +124,10 @@ $conn->close();
 </span>
 
 <span class="bt-l footnote">
-    <a href="faq.php">
-        <?php echo $lang['cont_faq']; ?>
-    </a>
+    <?php
+        echo '<a href="res.php?lang=' . $locale . '">' . $lang['index'] . '</a><br>';
+        echo '<a href="faq.php?lang=' . $locale . '">' . $lang['cont_faq'] . '</a><br>';
+    ?>
 </span>
 </body>
 </html>

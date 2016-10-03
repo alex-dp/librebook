@@ -6,6 +6,7 @@ $lang['description']	= 'Un posto per condividere liberamente tutti i tuoi libri 
 $lang['subtitle'] 		= 'Una piattaforma per la libera condivisione dei libri';
 $lang['sub_spec'] 		= 'Puoi condividere qualsiasi tipo di libro.';
 $lang['search'] 		= 'Ricerca per titolo o per ISBN';
+$lang['index']			= 'Indice';
 $lang['donate'] 		= 'Fai una donazione';
 $lang['add_book'] 		= 'Aggiungi un libro';
 $lang['cont_faq'] 		= 'Contatti — FAQ';

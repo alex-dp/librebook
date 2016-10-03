@@ -6,6 +6,7 @@ $lang['description']	= 'A place to freely share the books you love';
 $lang['subtitle'] 		= 'A free platform for sharing books';
 $lang['sub_spec'] 		= 'You can share any kind of book';
 $lang['search'] 		= 'Search by title or by ISBN';
+$lang['index']			= 'Index';
 $lang['donate'] 		= 'Donate';
 $lang['add_book'] 		= 'Add a book';
 $lang['cont_faq'] 		= 'Contacts — FAQ';

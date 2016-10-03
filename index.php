@@ -36,13 +36,11 @@ include_once 'languages/' . $locale . '.php';
 		<div class="center">
 			<?php echo $lang['subtitle']; ?> <br>
 			<font size="2"><?php echo $lang['sub_spec']; ?> </font> <br><br>
-			<div class="inputs">
-				<form action="res.php" autocomplete="off">
-					<?php
-						echo '<input type="text" class="tbox" placeholder="' . $lang["search"] . '" name="search"/>';
-					?>
-				</form>
-			</div>
+			<form action="res.php" autocomplete="off">
+				<?php
+					echo '<input type="text" class="tbox" placeholder="' . $lang["search"] . '" name="search"/>';
+				?>
+			</form>
 		</div>
 
 		<div class="sides">
@@ -59,9 +57,10 @@ include_once 'languages/' . $locale . '.php';
 		</span>
 
 		<span class="bt-l footnote">
-			<a href="faq.php">
-				<?php echo $lang['cont_faq'];?>
-			</a>
+			<?php
+				echo '<a href="res.php?lang=' . $locale . '">' . $lang['index'] . '</a><br>';
+				echo '<a href="faq.php?lang=' . $locale . '">' . $lang['cont_faq'] . '</a><br>';
+			?>
 		</span>
 	</body>
 </html>
