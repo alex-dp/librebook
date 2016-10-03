@@ -45,17 +45,18 @@ table {
 
 th {
 	text-align: right;
-	width: 100px;
+	width: 0px;
 }
 
 p.fix-td {
 	width: 500px;
 	white-space: nowrap;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .fixed-width {
-	width: 600px;
+	width: 500px;
 }
 
 .title {

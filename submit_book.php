@@ -20,6 +20,7 @@ include_once 'languages/' . $locale . '.php';
 		<meta charset="UTF-8"> 
 	</head>
 	<body>
+		<script src="sanitize.js"></script>
 		<div class="center title" id="title">
 			<a href="index.php" class="no-dec">
 				libr<font color="CadetBlue">e-book</font>
@@ -32,8 +33,7 @@ include_once 'languages/' . $locale . '.php';
 			<div class="right inputs">
 				<form action="sub.php" method="post" enctype="multipart/form-data" autocomplete="off">
 					<?php
-					echo '<label for="class">' . $lang['class'] . '</label>';
-					echo '<input name="isbn" placeholder="ISBN" class="tbox">
+					echo '<input name="isbn" placeholder="ISBN" class="tbox" onkeyup="checkisbn()" id="isbn">
 						<input name="title" placeholder="' . $lang['title'] . '" class="tbox">
 						<input name="subj" placeholder="' . $lang['subject'] . '" class="tbox">';
 					?>

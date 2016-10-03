@@ -67,8 +67,8 @@ if (!is_null($result) && $result->num_rows > 0)
         echo "<table class=\"fixed-width\">";
         echo "<tr><th>ISBN:</th><td>" . $row["isbn"] . "</td>";
         echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . $row["title"] . "</p></td>";
-        echo "<tr><th>{$lang['subject']}:</th><td><p class=\"fix-td\">" . $row["subj"] . "</p></td>";
-        echo "<tr><th>{$lang['grade']}:</th><td><p class=\"fix-td\">" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</p></td>";
+        echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
+        echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>";
         echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row['file_loc']}\">({$lang['here']})</a></td>";
 
         echo "</table><br>";
