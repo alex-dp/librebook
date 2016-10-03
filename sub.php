@@ -100,7 +100,7 @@ else {
 		$username = "dpdep";
 		$pw_loc = "/home/dpdep/private/pw.txt";
 		$password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
-		$password = substr($password, 0, 11);
+		$password = trim($password);
 
 		$conn = mysqli_connect($servername, $username, $password);
 
