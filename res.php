@@ -62,7 +62,7 @@ if (!mysqli_query($conn, $sql)); #table exists
 if ($search === 'all')
     $sql = "SELECT * FROM books";
 else
-    $sql = "SELECT * FROM books WHERE isbn='{$search}' OR title LIKE '%{$search}%' OR subj LIKE '%{$search}%';";
+    $sql = "SELECT * FROM books WHERE isbn='$search' OR title LIKE '%$search%' OR subj LIKE '%$search%';";
 
 $result = NULL;
 if($go == 1)
@@ -81,7 +81,7 @@ if (!is_null($result) && $result->num_rows > 0)
         echo "<tr><th>{$lang['title']}:</th><td>" . $row["title"] . "</td>";
         echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
         echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>";
-        echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row["file_loc"]}\">({$lang['here']})</a></td>";
+        echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row['file_loc']}\">({$lang['here']})</a></td>";
 
         echo "</table><br>";
     }
@@ -91,7 +91,7 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $pw = $_GET['pw'];
 
     if (is_numeric($rm) && $pw == $password) {
-        $sql = "SELECT * FROM books WHERE isbn='{$rm}';";
+        $sql = "SELECT * FROM books WHERE isbn='$rm';";
 
         $result = $conn->query($sql);
 
@@ -99,10 +99,10 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
             while($row = $result->fetch_assoc())
                 unlink(dirname(__FILE__) . "/" . $row["file_loc"]);
 
-        $sql = "DELETE FROM books WHERE isbn={$rm};";
+        $sql = "DELETE FROM books WHERE isbn=$rm;";
 
         if($conn->query($sql))
-            echo "{$lang['rem_req']} {$rm} {$lang['was_exec']}.";
+            echo "{$lang['rem_req']} $rm {$lang['was_exec']}.";
 
     }
 }

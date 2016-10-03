@@ -63,10 +63,10 @@ if (!is_numeric($isbn) || !in_array(strlen($isbn), array(10,13))) {
 }
 
 if (strlen($target_file) >= 200)
-	$target_file = substr(str_replace($ft, "", $target_file), 0, 180) . ".{$ft}";
+	$target_file = substr(str_replace($ft, "", $target_file), 0, 180) . ".$ft";
 
 while (file_exists($target_file))
-    $target_file = str_replace($ft, "", $target_file) . rand() . ".{$ft}";
+    $target_file = str_replace($ft, "", $target_file) . rand() . ".$ft";
 
 if ($_FILES["file_loc"]["size"] > 50000000) {
     echo $lang['too big'] . "<br>";
@@ -123,7 +123,7 @@ else {
 		if (!mysqli_query($conn, $sql)); #table exists
 
 		$sql = "INSERT INTO books (isbn, title, subj, class, file_loc)
-		VALUES ('{$isbn}', '{$title}', '{$subj}', '{$class}', '{$target_file}');";
+		VALUES ('$isbn', '$title', '$subj', '$class', '$target_file');";
 
 		if ($conn->query($sql) !== TRUE)
 		    echo "{$lang['ins_error']}<br>
