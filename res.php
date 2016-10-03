@@ -47,18 +47,6 @@ if (!$conn)
 $sql = "USE book_entries;";
 mysqli_query($conn, $sql);
 
-$sql = "CREATE TABLE books (
-	isbn VARCHAR(13) NOT NULL PRIMARY KEY,
-	title VARCHAR(150) NOT NULL,
-	subj VARCHAR(30) NOT NULL,
-	class VARCHAR(2),
-	file_loc VARCHAR(200),
-	pic_loc VARCHAR(200),
-	up_time TIMESTAMP
-)";
-
-if (!mysqli_query($conn, $sql)); #table exists
-
 if ($search === 'all')
     $sql = "SELECT * FROM books";
 else
@@ -78,9 +66,9 @@ if (!is_null($result) && $result->num_rows > 0)
 
         echo "<table class=\"fixed-width\">";
         echo "<tr><th>ISBN:</th><td>" . $row["isbn"] . "</td>";
-        echo "<tr><th>{$lang['title']}:</th><td>" . $row["title"] . "</td>";
-        echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
-        echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>";
+        echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . $row["title"] . "</p></td>";
+        echo "<tr><th>{$lang['subject']}:</th><td><p class=\"fix-td\">" . $row["subj"] . "</p></td>";
+        echo "<tr><th>{$lang['grade']}:</th><td><p class=\"fix-td\">" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</p></td>";
         echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row['file_loc']}\">({$lang['here']})</a></td>";
 
         echo "</table><br>";
@@ -91,7 +79,7 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $pw = $_GET['pw'];
 
     if (is_numeric($rm) && $pw == $password) {
-        $sql = "SELECT * FROM books WHERE isbn='$rm';";
+        $sql = "SELECT file_loc FROM books WHERE isbn='$rm';";
 
         $result = $conn->query($sql);
 

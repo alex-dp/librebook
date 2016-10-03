@@ -110,18 +110,6 @@ else {
 		$sql = "USE book_entries;";
 		mysqli_query($conn, $sql);
 
-		$sql = "CREATE TABLE books (
-			isbn VARCHAR(13) NOT NULL PRIMARY KEY,
-			title VARCHAR(150) NOT NULL,
-			subj VARCHAR(30) NOT NULL,
-			class VARCHAR(2),
-			file_loc VARCHAR(200),
-			pic_loc VARCHAR(200),
-			up_time TIMESTAMP
-		)";
-
-		if (!mysqli_query($conn, $sql)); #table exists
-
 		$sql = "INSERT INTO books (isbn, title, subj, class, file_loc)
 		VALUES ('$isbn', '$title', '$subj', '$class', '$target_file');";
 

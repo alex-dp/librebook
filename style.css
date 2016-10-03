@@ -48,8 +48,14 @@ th {
 	width: 100px;
 }
 
+p.fix-td {
+	width: 500px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
 .fixed-width {
-	width: 400px;
+	width: 600px;
 }
 
 .title {
