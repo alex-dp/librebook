@@ -1,18 +1,16 @@
-function replaceAll(str, find, replace) {
-  return str.replace(new RegExp(find, 'g'), replace);
+function replaceAll(a,b,c) {
+	return a.replace(new RegExp(b, ''), c)
 }
 
-function IsNumeric(val) {
-    return Number(parseFloat(val))==val;
+function IsNumeric(a) {
+	return Number(parseFloat(a))==a
 }
 
 function checkisbn() {
-	e = document.getElementById('isbn')
+	e=document.getElementById('isbn')
+	sane=replaceAll(e.value, /[ -]/, '')
 
-	sane = replaceAll(e.value, '-', '')
-	sane = replaceAll(sane, ' ', '')
-
-	if (IsNumeric(sane) && (sane.length === 10 || sane.length === 13))
-		e.style.border = "1px solid green"
-	else e.style.border = "1px solid red"
+	sane.length == 0 ? e.style.border = '1px solid cadetblue' :
+		!IsNumeric(sane) || 10 !== sane.length && 13 !== sane.length ?
+			e.style.border="1px solid red" : e.style.border="1px solid green"
 }

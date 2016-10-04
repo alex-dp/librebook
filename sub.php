@@ -45,12 +45,15 @@ $val_ext = array("7z", "zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
 $isbn = str_replace(array('-', ' '), '', $_POST['isbn']);
 $title = substr($_POST['title'], 0, 150);
 $subj = substr($_POST['subj'], 0, 30);
-$class = $_POST['class'] ?: end($lang['classes']);
 
-$strip = array("'", "(", ")", ";");
+end($lang['classes']);
+$class = $_POST['class'] ?: key($lang['classes']);
 
-$title = str_replace($strip, "", $title);
-$subj = str_replace($strip, "", $subj);
+$title = str_replace("\\", "\\\\", $title);
+$title = str_replace("'", "\\'", $title);
+
+$subj = str_replace("\\", "\\\\", $subj);
+$subj = str_replace("'", "\'", $subj);
 
 if(!in_array($ft, $val_ext)) {
 	echo "{$lang['not_ebook']}<br>";
@@ -59,7 +62,7 @@ if(!in_array($ft, $val_ext)) {
 
 if (!is_numeric($isbn) || !in_array(strlen($isbn), array(10,13))) {
 	echo "{$lang['wrong_isbn']}<br>";
-	$uploadOk = 0;
+	$isbn = '';
 }
 
 if (strlen($target_file) >= 200)

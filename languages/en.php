@@ -37,6 +37,8 @@ $lang['wrong_pass'] 	= 'Wrong password!';
 
 $lang['page_not_exists']= 'This page does not exist';
 
+$lang['none'] = 'None';
+
 $lang['classes'] = array(
 	'06' => '6th',
 	'07' => '7th',

@@ -8,7 +8,7 @@
 }
 
 a {
-	color: darkslategray;
+	color: slategray;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 
 code {
 	font-family: monospace !important;
-	font-size: 18px;
+	font-size: 16px;
 	background-color: #e0e0e0;
 }
 

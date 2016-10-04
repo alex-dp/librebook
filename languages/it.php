@@ -37,6 +37,8 @@ $lang['wrong_pass'] 	= 'La password è errata!';
 
 $lang['page_not_exists']= 'Questa pagina non esiste';
 
+$lang['none'] = 'Nessuno';
+
 $lang['classes'] = array(
 	'1m' => '1ᴬ media',
 	'2m' => '2ᴬ media',
