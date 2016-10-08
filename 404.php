@@ -1,15 +1,6 @@
 <?php
-
-if (isset($_GET['lang']))
-	$locale = substr($_GET['lang'], 0, 2);
-
-else
-	$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-if(!in_array($locale, array('en', 'it')))
-	$locale = 'en';
-
-include_once 'languages/' . $locale . '.php';
+include_once 'auto_lang.php';
+$lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 ?>
 
 <html>
@@ -39,8 +30,8 @@ include_once 'languages/' . $locale . '.php';
 
 		<span class="bt-l footnote">
 			<?php
-				echo '<a href="res.php?lang=' . $locale . '">' . $lang['index'] . '</a><br>';
-				echo '<a href="faq.php?lang=' . $locale . '">' . $lang['cont_faq'] . '</a><br>';
+				echo '<a href="res.php?lang=' . $lang['code'] . '">' . $lang['index'] . '</a><br>';
+				echo '<a href="faq.php?lang=' . $lang['code'] . '">' . $lang['cont_faq'] . '</a><br>';
 			?>
 		</span>
 	</body>

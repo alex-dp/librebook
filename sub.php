@@ -1,16 +1,7 @@
 <?php
 setcookie("upload", 1, time() + 60);
-
-if (isset($_GET['lang']))
-	$locale = substr($_GET['lang'], 0, 2);
-
-else
-	$locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-if(!in_array($locale, array('en', 'it')))
-	$locale = 'en';
-
-include_once 'languages/' . $locale . '.php';
+include_once 'auto_lang.php';
+$lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 ?>
 
 <html>
@@ -36,7 +27,8 @@ function startsWith($haystack, $needle) {
 	return (substr($haystack, 0, strlen($needle)) === $needle);
 }
 
-$target_file = "uploads/" . basename($_FILES["file_loc"]["name"]);
+$file_name = basename($_FILES["file_loc"]["name"]);
+$target_file = "/home/dpdep/uploads/" . $file_name;
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
 $val_ext = array("7z", "zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
@@ -48,6 +40,7 @@ $subj = substr($_POST['subj'], 0, 30);
 
 end($lang['classes']);
 $class = $_POST['class'] ?: key($lang['classes']);
+$class = str_replace(array('-', "'"), '', $class);
 
 $title = str_replace("\\", "\\\\", $title);
 $title = str_replace("'", "\\'", $title);
@@ -114,7 +107,7 @@ else {
 		mysqli_query($conn, $sql);
 
 		$sql = "INSERT INTO books (isbn, title, subj, class, file_loc)
-		VALUES ('$isbn', '$title', '$subj', '$class', '$target_file');";
+		VALUES ('$isbn', '$title', '$subj', '$class', '$file_name');";
 
 		if ($conn->query($sql) !== TRUE)
 		    echo "{$lang['ins_error']}<br>
@@ -139,8 +132,8 @@ else {
 
 <span class="bt-l footnote">
 	<?php
-		echo '<a href="res.php?lang=' . $locale . '">' . $lang['index'] . '</a><br>';
-		echo '<a href="faq.php?lang=' . $locale . '">' . $lang['cont_faq'] . '</a><br>';
+		echo '<a href="res.php?lang=' . $lang['code'] . '">' . $lang['index'] . '</a><br>';
+		echo '<a href="faq.php?lang=' . $lang['code'] . '">' . $lang['cont_faq'] . '</a><br>';
 	?>
 </span>
 </body>

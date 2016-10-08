@@ -2,6 +2,8 @@
 
 $lang = array();
 
+$lang['code']			= 'it';
+
 $lang['description']	= 'Un posto per condividere liberamente tutti i tuoi libri preferiti';
 $lang['subtitle'] 		= 'Una piattaforma per la libera condivisione dei libri';
 $lang['sub_spec'] 		= 'Puoi condividere qualsiasi tipo di libro.';

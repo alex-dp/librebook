@@ -2,6 +2,8 @@
 
 $lang = array();
 
+$lang['code']			= 'en';
+
 $lang['description']	= 'A place to freely share the books you love';
 $lang['subtitle'] 		= 'A free platform for sharing books';
 $lang['sub_spec'] 		= 'You can share any kind of book';
@@ -72,7 +74,7 @@ $lang['questions'] = array(
 	'Where can I find truly free books to upload?' => 'If the book you want to upload is distributed in a proprietary (non-free, subjugating) format, it might be hard to obtain a shareable copy. This is common with textbooks.
 			We\'ll need everyone\'s effort to liberate them and liberate us. If you think you\'ve found an effective and extensible method, please contact me.',
 
-	'How do you use cookies?' => 'At the moment, "<code>upload</code>" is the only cookie i use. It serves as a spam filter.',
+	'How do you use cookies?' => 'At the moment, "<code>upload</code>" is the only cookie I use. It serves as a spam filter.',
 	
 	'Which payment methods do you accept for donations?' => '<a href="https://www.paypal.me/makeitrainonme">Paypal</a> and Bitcoin to here:',
 	);

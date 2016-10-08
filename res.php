@@ -1,15 +1,6 @@
 <?php
-
-if (isset($_GET['lang']))
-    $locale = substr($_GET['lang'], 0, 2);
-
-else
-    $locale = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-if(!in_array($locale, array('en', 'it')))
-    $locale = 'en';
-
-include_once 'languages/' . $locale . '.php';
+include_once 'auto_lang.php';
+$lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 ?>
 
 <html>
@@ -27,7 +18,24 @@ include_once 'languages/' . $locale . '.php';
     </a>
 </div>
 
+<div class="center">
+    <form action="res.php" autocomplete="off">
+        <?php
+            echo '<input type="text" class="tbox" placeholder="' . $lang["search"] . '" name="search"/>';
+        ?>
+    </form>
+</div>
+
 <?php
+
+function startsWith($haystack, $needle) {
+    return (substr($haystack, 0, strlen($needle)) === $needle);
+}
+
+function strip_prefix($string) {
+    return startsWith($string, 'uploads/') ?
+        str_replace('uploads/', '', $string) : $string;
+}
 
 $go = 1;
 
@@ -71,7 +79,7 @@ if (!is_null($result) && $result->num_rows > 0)
         echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . $row['title'] . "</p></td>";
         echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
         echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>";
-        echo "<tr><th>{$lang['dl']}:</th><td>" . "<a href = \"{$row['file_loc']}\">({$lang['here']})</a></td>";
+        echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . strip_prefix($row['file_loc']) . "\">({$lang['here']})</a></td>";
 
         echo "</table><br>";
     }
@@ -81,15 +89,15 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $pw = $_GET['pw'];
 
     if (is_numeric($rm) && $pw == $password) {
-        $sql = "SELECT file_loc FROM books WHERE isbn='$rm';";
+        $sql = "SELECT file_loc FROM books WHERE un_id='$rm';";
 
         $result = $conn->query($sql);
 
         if (!is_null($result) && $result->num_rows > 0)
             while($row = $result->fetch_assoc())
-                unlink(dirname(__FILE__) . "/" . $row["file_loc"]);
+                unlink('/home/dpdep/uploads/' . strip_prefix($row['file_loc']));
 
-        $sql = "DELETE FROM books WHERE isbn=$rm;";
+        $sql = "DELETE FROM books WHERE un_id=$rm;";
 
         if($conn->query($sql))
             echo "{$lang['rem_req']} $rm {$lang['was_exec']}.";
@@ -115,8 +123,8 @@ $conn->close();
 
 <span class="bt-l footnote">
     <?php
-        echo '<a href="res.php?lang=' . $locale . '">' . $lang['index'] . '</a><br>';
-        echo '<a href="faq.php?lang=' . $locale . '">' . $lang['cont_faq'] . '</a><br>';
+        echo '<a href="res.php?lang=' . $lang['code'] . '">' . $lang['index'] . '</a><br>';
+        echo '<a href="faq.php?lang=' . $lang['code'] . '">' . $lang['cont_faq'] . '</a><br>';
     ?>
 </span>
 </body>
