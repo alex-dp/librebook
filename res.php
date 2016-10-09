@@ -1,5 +1,5 @@
 <?php
-include_once 'auto_lang.php';
+include_once 'tools.php';
 $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 ?>
 
@@ -28,78 +28,52 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
 <?php
 
-function startsWith($haystack, $needle) {
-    return (substr($haystack, 0, strlen($needle)) === $needle);
-}
-
-function strip_prefix($string) {
-    return startsWith($string, 'uploads/') ?
-        str_replace('uploads/', '', $string) : $string;
-}
-
-$go = 1;
-
-$servername = "localhost";
-$username = "dpdep";
 $pw_loc = "/home/dpdep/private/pw.txt";
-$password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
-$password = trim($password);
+$password = trim(fread(fopen($pw_loc, "r"), filesize($pw_loc)));
 
-$search = str_replace('-', '', $_GET['search']);
-$search = str_replace("'", '', $search);
+$dbh = mysqli_connect('localhost', 'dpdep', $password);
 
-$conn = mysqli_connect($servername, $username, $password);
-
-if (!$conn)
+if (!$dbh)
     die("Connection failed: " . mysqli_connect_error());
 
-$sql = "USE book_entries;";
-mysqli_query($conn, $sql);
+$dbh -> query('USE book_entries;');
+$search = $dbh -> real_escape_string($_GET['search']);
 
-if ($search === 'all')
-    $sql = "SELECT * FROM books";
-else
-    $sql = "SELECT * FROM books WHERE isbn='$search' OR title LIKE '%$search%' OR subj LIKE '%$search%';";
+$sql = "SELECT * FROM books WHERE isbn = '$search' OR title LIKE '%$search%' OR subj LIKE '%$search%';";
 
-$result = NULL;
-if($go == 1)
-    $result = $conn->query($sql);
+$res = $dbh -> query($sql);
 
 echo '<div class="center">';
-echo ($result->num_rows ?: 0) . ' ' . $lang['results'];
+echo $res -> num_rows . ' ' . $lang['results'];
 echo '</div><br>';
 
-if (!is_null($result) && $result->num_rows > 0)
+foreach ($res as $row) {
+    echo '<table class="fixed-width">';
+    if(isset($row['isbn']))
+        echo '<tr><th>ISBN:</th><td>' . $row['isbn'] . '</td>';
+    echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . $row['title'] . '</p></td>';
+    echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . '</td>';
+    echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . '</td>';
+    echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . lstrip($row['file_loc'], 'uploads/') . "\">({$lang['here']})</a></td>";
 
-    while($row = $result->fetch_assoc()) {
-
-        echo "<table class=\"fixed-width\">";
-        if(trim($row['isbn']))
-            echo "<tr><th>ISBN:</th><td>" . $row['isbn'] . "</td>";
-        echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . $row['title'] . "</p></td>";
-        echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . "</td>";
-        echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>";
-        echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . strip_prefix($row['file_loc']) . "\">({$lang['here']})</a></td>";
-
-        echo "</table><br>";
-    }
+    echo '</table><br>';
+}
 
 if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $rm = $_GET['rm'];
     $pw = $_GET['pw'];
 
     if (is_numeric($rm) && $pw == $password) {
-        $sql = "SELECT file_loc FROM books WHERE un_id='$rm';";
+        $sql = "SELECT file_loc FROM books WHERE un_id = $rm;";
 
-        $result = $conn->query($sql);
+        $result = $dbh->query($sql);
 
-        if (!is_null($result) && $result->num_rows > 0)
-            while($row = $result->fetch_assoc())
-                unlink('/home/dpdep/uploads/' . strip_prefix($row['file_loc']));
+        foreach ($res as $row)
+            unlink('/home/dpdep/uploads/' . lstrip($row['file_loc'], '/uploads'));
 
-        $sql = "DELETE FROM books WHERE un_id=$rm;";
+        $sql = "DELETE FROM books WHERE un_id = $rm;";
 
-        if($conn->query($sql))
+        if($dbh -> query($sql))
             echo "{$lang['rem_req']} $rm {$lang['was_exec']}.";
 
     }
@@ -111,7 +85,7 @@ if (isset($rm) && !isset($pw))
 if (isset($pw) && $pw != $password)
     echo $lang['wrong_pass'];
 
-$conn->close();
+$dbh->close();
 
 ?>
 

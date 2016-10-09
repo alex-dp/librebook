@@ -1,6 +1,6 @@
 <?php
 setcookie("upload", 1, time() + 60);
-include_once 'auto_lang.php';
+include_once 'tools.php';
 $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 ?>
 
@@ -23,30 +23,17 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
 <?php
 
-function startsWith($haystack, $needle) {
-	return (substr($haystack, 0, strlen($needle)) === $needle);
-}
-
 $file_name = basename($_FILES["file_loc"]["name"]);
 $target_file = "/home/dpdep/uploads/" . $file_name;
 $uploadOk = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
-$val_ext = array("7z", "zip", "epub", "pbd", "fb2", "pdf", "mobi", "djvu",
-	"azw", "azw2", "azw3", "tar.xz", "tar.gz", "rar");
 
-$isbn = str_replace(array('-', ' '), '', $_POST['isbn']);
+$isbn = $_POST['isbn'];
 $title = substr($_POST['title'], 0, 150);
 $subj = substr($_POST['subj'], 0, 30);
 
 end($lang['classes']);
 $class = $_POST['class'] ?: key($lang['classes']);
-$class = str_replace(array('-', "'"), '', $class);
-
-$title = str_replace("\\", "\\\\", $title);
-$title = str_replace("'", "\\'", $title);
-
-$subj = str_replace("\\", "\\\\", $subj);
-$subj = str_replace("'", "\'", $subj);
 
 if(!in_array($ft, $val_ext)) {
 	echo "{$lang['not_ebook']}<br>";
@@ -90,33 +77,37 @@ if ($uploadOk == 0)
     echo $lang['not_uploaded'] . "<br>";
 else {
     if (move_uploaded_file($_FILES["file_loc"]["tmp_name"], $target_file)) {
-        echo "{$lang['your_file']} ". basename($_FILES["file_loc"]["name"]). " {$lang['was_uploaded']}.<br>";
+        echo "{$lang['your_file']} ". $file_name . " {$lang['was_uploaded']}.<br>";
 
         $servername = "localhost";
 		$username = "dpdep";
 		$pw_loc = "/home/dpdep/private/pw.txt";
-		$password = fread(fopen($pw_loc, "r"), filesize($pw_loc));
-		$password = trim($password);
+		$password = trim(fread(fopen($pw_loc, "r"), filesize($pw_loc)));
 
-		$conn = mysqli_connect($servername, $username, $password);
+		$dbh = mysqli_connect($servername, $username, $password);
 
-		if (!$conn)
+		$title = $dbh -> real_escape_string($title);
+		$subj = $dbh -> real_escape_string($subj);
+		$class = $dbh -> real_escape_string($class);
+		$file_name = $dbh -> real_escape_string($file_name);
+
+		if (!$dbh)
 		    die("Connection failed: " . mysqli_connect_error() . "<br>");
 
 		$sql = "USE book_entries;";
-		mysqli_query($conn, $sql);
+		mysqli_query($dbh, $sql);
 
 		$sql = "INSERT INTO books (isbn, title, subj, class, file_loc)
 		VALUES ('$isbn', '$title', '$subj', '$class', '$file_name');";
 
-		if ($conn->query($sql) !== TRUE)
+		if ($dbh->query($sql) !== TRUE)
 		    echo "{$lang['ins_error']}<br>
 				{$lang['already_there']}<br><br>
 				{$lang['send_details']}<br>
 				<b>SQL: </b>" . $sql . "<br>
-				<b>E: </b>" . $conn->error;
+				<b>E: </b>" . $dbh->error;
 
-		$conn->close();
+		$dbh->close();
     } else echo "{$lang['load_error']}<br>";
 }
 

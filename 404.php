@@ -1,5 +1,5 @@
 <?php
-include_once 'auto_lang.php';
+include_once 'tools.php';
 $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 ?>
 
