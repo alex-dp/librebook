@@ -44,7 +44,7 @@ $sql = "SELECT * FROM books WHERE isbn = '$search' OR title LIKE '%$search%' OR 
 $res = $dbh -> query($sql);
 
 echo '<div class="center">';
-echo $res -> num_rows . ' ' . $lang['results'];
+echo $res -> num_rows . ' ' . ($res -> num_rows == 1 ? $lang['result'] : $lang['results']);
 echo '</div><br>';
 
 foreach ($res as $row) {

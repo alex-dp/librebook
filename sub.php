@@ -25,7 +25,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
 $file_name = basename($_FILES["file_loc"]["name"]);
 $target_file = "/home/dpdep/uploads/" . $file_name;
-$uploadOk = 1;
+$go = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
 
 $isbn = $_POST['isbn'];
@@ -37,7 +37,7 @@ $class = $_POST['class'] ?: key($lang['classes']);
 
 if(!in_array($ft, $val_ext)) {
 	echo "{$lang['not_ebook']}<br>";
-	$uploadOk = 0;
+	$go = 0;
 }
 
 if (!is_numeric($isbn) || !in_array(strlen($isbn), array(10,13))) {
@@ -53,10 +53,10 @@ while (file_exists($target_file))
 
 if ($_FILES["file_loc"]["size"] > 50000000) {
     echo $lang['too big'] . "<br>";
-    $uploadOk = 0;
+    $go = 0;
 } elseif ($_FILES["file_loc"]["size"] < 500) {
     echo '<font color="red">' . $lang['spam'] . '</font><br>';
-    $uploadOk = 0;
+    $go = 0;
 }
 
 if (startsWith($isbn, '1111') || startsWith($isbn, '0000') ||
@@ -65,15 +65,15 @@ if (startsWith($isbn, '1111') || startsWith($isbn, '0000') ||
 		isset($_GET['filter'])) {
 
 	echo '<font color="red">' . $lang['spam'] . '</font><br>';
-	$uploadOk = 0;
+	$go = 0;
 }
 
 if (isset($_COOKIE['upload']) && $_COOKIE['upload'] == 1) {
 	echo '<font color="red">' . $lang['wait'] . '</font><br>';
-	$uploadOk = 0;
+	$go = 0;
 }
 
-if ($uploadOk == 0)
+if ($go == 0)
     echo $lang['not_uploaded'] . "<br>";
 else {
     if (move_uploaded_file($_FILES["file_loc"]["tmp_name"], $target_file)) {
@@ -93,9 +93,8 @@ else {
 
 		if (!$dbh)
 		    die("Connection failed: " . mysqli_connect_error() . "<br>");
-
-		$sql = "USE book_entries;";
-		mysqli_query($dbh, $sql);
+		
+		mysqli_query($dbh, "USE book_entries;");
 
 		$sql = "INSERT INTO books (isbn, title, subj, class, file_loc)
 		VALUES ('$isbn', '$title', '$subj', '$class', '$file_name');";

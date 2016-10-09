@@ -10,7 +10,9 @@ function checkisbn() {
 	e = document.getElementById('isbn')
 	sane = replaceAll(e.value, /[ -]/, '')
 
-	sane.length == 0 ? e.style.border = '1px solid cadetblue' :
-		!IsNumeric(sane) || 10 !== sane.length && 13 !== sane.length ?
-			e.style.border="1px solid red" : e.style.border="1px solid green"
+	sane.length == 0 ?
+		(e.style.border = '1px solid cadetblue', e.style.background = "white") :
+			!IsNumeric(sane) || 10 !== sane.length && 13 !== sane.length ?
+				(e.style.border = "1px solid red", e.style.background = "pink") :
+				(e.style.border = "1px solid green", e.style.background = "lightgreen")
 }

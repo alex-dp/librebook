@@ -24,7 +24,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 			<div class="right inputs">
 				<form action="sub.php" method="post" enctype="multipart/form-data" autocomplete="off">
 					<?php
-					echo '<input name="isbn" placeholder="ISBN" class="tbox" onkeyup="checkisbn()" id="isbn">
+					echo '<input name="isbn" placeholder="ISBN" class="tbox" oninput="checkisbn()" id="isbn">
 						<input name="title" placeholder="' . $lang['title'] . '" class="tbox">
 						<input name="subj" placeholder="' . $lang['subject'] . '" class="tbox">';
 					?>

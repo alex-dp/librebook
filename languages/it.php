@@ -31,6 +31,7 @@ $lang['subject'] 		= 'Argomento';
 $lang['grade'] 			= 'Classe';
 $lang['dl']				= 'Download';
 $lang['here']			= 'Qui';
+$lang['result'] 		= 'risultato';
 $lang['results'] 		= 'risultati';
 $lang['rem_req'] 		= 'La richiesta di rimozione del libro';
 $lang['was_exec'] 		= 'è stata eseguita';
