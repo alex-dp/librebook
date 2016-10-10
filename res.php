@@ -48,15 +48,15 @@ echo $res -> num_rows . ' ' . ($res -> num_rows == 1 ? $lang['result'] : $lang['
 echo '</div><br>';
 
 foreach ($res as $row) {
-    echo '<table class="fixed-width">';
+    echo "<table class=\"fixed-width\">\n";
     if(isset($row['isbn']))
-        echo '<tr><th>ISBN:</th><td>' . $row['isbn'] . '</td>';
-    echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . htmlspecialchars($row['title']) . '</p></td>';
-    echo "<tr><th>{$lang['subject']}:</th><td>" . htmlspecialchars($row["subj"]) . '</td>';
-    echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . '</td>';
-    echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . lstrip($row['file_loc'], 'uploads/') . "\">({$lang['here']})</a></td>";
+        echo '<tr><th>ISBN:</th><td>' . $row['isbn'] . "</td>\n";
+    echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . htmlspecialchars($row['title']) . "</p></td>\n";
+    echo "<tr><th>{$lang['subject']}:</th><td>" . htmlspecialchars($row["subj"]) . "</td>\n";
+    echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>\n";
+    echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . $row['file_loc'] . "\">({$lang['here']})</a></td>\n";
 
-    echo '</table><br>';
+    echo "</table><br>\n\n";
 }
 
 if (isset($_GET['rm']) && isset($_GET['pw'])) {
@@ -69,7 +69,7 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
         $res = $dbh->query($sql);
 
         foreach ($res as $row)
-            unlink('/home/dpdep/uploads/' . lstrip($row['file_loc'], 'uploads/'));
+            rename('/home/dpdep/uploads/' . $row['file_loc'], '/home/dpdep/uploads/del/' . $row['file_loc']);
 
         $sql = "DELETE FROM books WHERE un_id = $rm;";
 
