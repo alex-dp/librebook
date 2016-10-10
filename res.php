@@ -51,8 +51,8 @@ foreach ($res as $row) {
     echo '<table class="fixed-width">';
     if(isset($row['isbn']))
         echo '<tr><th>ISBN:</th><td>' . $row['isbn'] . '</td>';
-    echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . $row['title'] . '</p></td>';
-    echo "<tr><th>{$lang['subject']}:</th><td>" . $row["subj"] . '</td>';
+    echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . htmlspecialchars($row['title']) . '</p></td>';
+    echo "<tr><th>{$lang['subject']}:</th><td>" . htmlspecialchars($row["subj"]) . '</td>';
     echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . '</td>';
     echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . lstrip($row['file_loc'], 'uploads/') . "\">({$lang['here']})</a></td>";
 
@@ -64,12 +64,12 @@ if (isset($_GET['rm']) && isset($_GET['pw'])) {
     $pw = $_GET['pw'];
 
     if (is_numeric($rm) && $pw == $password) {
-        $sql = "SELECT file_loc FROM books WHERE un_id = $rm;";
+        $sql = "SELECT file_loc FROM books WHERE un_id=$rm;";
 
-        $result = $dbh->query($sql);
+        $res = $dbh->query($sql);
 
         foreach ($res as $row)
-            unlink('/home/dpdep/uploads/' . lstrip($row['file_loc'], '/uploads'));
+            unlink('/home/dpdep/uploads/' . lstrip($row['file_loc'], 'uploads/'));
 
         $sql = "DELETE FROM books WHERE un_id = $rm;";
 

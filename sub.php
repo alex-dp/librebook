@@ -28,7 +28,7 @@ $target_file = "/home/dpdep/uploads/" . $file_name;
 $go = 1;
 $ft = pathinfo($target_file, PATHINFO_EXTENSION);
 
-$isbn = $_POST['isbn'];
+$isbn = str_replace(array('-', ' '), '', $_POST['isbn']);
 $title = substr($_POST['title'], 0, 150);
 $subj = substr($_POST['subj'], 0, 30);
 
