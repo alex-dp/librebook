@@ -35,11 +35,16 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 			$lang['questions'][key($lang['questions'])] .= 
 				(" <code>" . $addrs[rand(0, count($addrs) - 1)] . "</code>");
 
+			$i = 0;
 			foreach ($lang['questions'] as $q => $a) {
-				echo '<h3 class="q">' . $q . '</h3>';
+				echo '<h3 class="q" id="' . $i . '" onclick="book(event)">' . $q . '</h3>';
 				echo '<blockquote>' . $a . '</blockquote>';
+
+				$i++;
 			}
 		?>
+
+		<script src="point.js"></script>
 
 		<span class="bt-r footnote" id="foot">
 			<a href="https://github.com/deeepaaa/librebook">
@@ -51,8 +56,6 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 		    <?php
 		        echo '<a href="res.php?lang=' . $lang['code'] . '">' . $lang['index'] . '</a><br>';
 		        echo '<a href="faq.php?lang=' . $lang['code'] . '">' . $lang['cont_faq'] . '</a><br>';
-
-		        echo '<script>alert({$lang["code"]})</script>';
 		    ?>
 		</span>
 	</body>
