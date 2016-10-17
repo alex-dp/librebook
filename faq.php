@@ -18,7 +18,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 		</div>
 
 		<div class="center very-big">
-			<font color="powderblue">
+			<font color="#97DAE9">
 				<?php echo $lang['faq']; ?>
 			</font>
 		</div>

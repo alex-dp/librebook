@@ -12,6 +12,16 @@ a {
 	text-decoration: none;
 }:hover {
 	text-decoration: underline;
+}[href="index.php"] {
+	background-image: url('favicon.png');
+	background-size: 50px;
+	background-position: left;
+	background-repeat: no-repeat;
+
+	padding-left: 64px;
+	padding-right: 64px;
+
+	padding-top: 8px;
 }
 
 body {
@@ -69,15 +79,7 @@ p.fix-td {
 .title {
 	font-size: 80px;
 	letter-spacing: -8px;
-
-	background-image: url('favicon.png');
-	background-size: 50px;
-	background-position: top;
-	background-repeat: no-repeat;
-	padding-top: 50px;
 	margin-top: 16px;
-	
-	min-width: 350px;
 }
 
 .center {
