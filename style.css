@@ -8,7 +8,10 @@
 }
 
 a {
-	color: slategray;
+	color: #01a5ca;
+	text-decoration: none;
+}:hover {
+	text-decoration: underline;
 }
 
 body {
@@ -27,7 +30,7 @@ h3 {
 }
 
 input, table {
-	border: 1px solid CadetBlue;
+	border: 1px solid #01A5CA;
 	font-size: 16px;
 	background-color: #FFFFFF;
 }
@@ -46,6 +49,10 @@ table {
 th {
 	text-align: right;
 	width: 0px;
+}
+
+option {
+	font-size: 15px;
 }
 
 p.fix-td {

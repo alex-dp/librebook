@@ -15,8 +15,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="librebook.svg"
-   inkscape:export-filename="/home/depa/librebook.png"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="/home/depa/Documents/librebook/favicon.png"
    inkscape:export-xdpi="204.8"
    inkscape:export-ydpi="204.8">
   <defs
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="29.797141"
-     inkscape:cy="118.72226"
+     inkscape:cx="73.725712"
+     inkscape:cy="117.29369"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,7 +61,7 @@
      id="layer1"
      transform="translate(-52.349609,413.59767)">
     <path
-       style="fill:#233a3b;fill-opacity:1;stroke:none"
+       style="fill:#01a5ca;fill-opacity:1;stroke:none"
        d="m 52.349609,-408.34768 a 112.5,112.5 0 0 0 78.785161,107.19727 112.5,112.5 0 0 0 -78.785161,107.30273 l 85.890621,0 26.30079,-63.49609 26.30078,63.49609 86.50781,0 a 112.5,112.5 0 0 0 -78.78516,-107.19726 112.5,112.5 0 0 0 78.78516,-107.30274 l -85.89063,0 -26.30078,63.4961 -26.30078,-63.4961 -86.507811,0 z m 12.931641,10.54493 68.33594,0 31.79297,76.7539 31.79296,-76.7539 67.21485,0 a 100,100 0 0 1 -99.56445,91.41211 100,100 0 0 1 -99.57227,-91.41211 z m 99.56445,101.99804 a 100,100 0 0 1 99.57227,91.41211 l -68.33594,0 -31.79297,-76.7539 -31.79297,76.7539 -67.21484,0 a 100,100 0 0 1 99.56445,-91.41211 z"
        id="path4232-27"
        inkscape:connector-curvature="0" />

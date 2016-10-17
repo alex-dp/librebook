@@ -14,7 +14,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
 <div class="center title" id="title">
     <a href="index.php" class="no-dec">
-        libr<font color="CadetBlue">e-book</font>
+        libr<font color="#01a5ca">e-book</font>
     </a>
 </div>
 
@@ -49,7 +49,7 @@ echo '</div><br>';
 
 foreach ($res as $row) {
     echo "<table class=\"fixed-width\">\n";
-    if(isset($row['isbn']))
+    if(isset($row['isbn']) && $row['isbn'] != '')
         echo '<tr><th>ISBN:</th><td>' . $row['isbn'] . "</td>\n";
     echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . htmlspecialchars($row['title']) . "</p></td>\n";
     echo "<tr><th>{$lang['subject']}:</th><td>" . htmlspecialchars($row["subj"]) . "</td>\n";

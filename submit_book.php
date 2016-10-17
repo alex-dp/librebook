@@ -14,7 +14,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 		<script src="sanitize.js"></script>
 		<div class="center title" id="title">
 			<a href="index.php" class="no-dec">
-				libr<font color="CadetBlue">e-book</font>
+				libr<font color="#01a5ca">e-book</font>
 			</a>
 		</div>
 
@@ -34,7 +34,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 	                    echo '<option value="" disabled selected>' . $lang["grade"];
 
 	                    foreach ($lang['classes'] as $key => $value)
-	                    	echo '<option value="' . $key . '" style="font-size: 15px">' . $value;
+	                    	echo '<option value="' . $key . '">' . $value;
 
 	                    ?>
 	                </select>
