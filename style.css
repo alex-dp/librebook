@@ -20,8 +20,9 @@ a {
 
 	padding-left: 64px;
 	padding-right: 64px;
-
 	padding-top: 8px;
+
+	white-space: nowrap;
 }
 
 body {
@@ -146,6 +147,15 @@ p.fix-td {
 .no-dec {
 	text-decoration: none;
 	color: black;
+}
+
+.spam-bg {
+	background: url("spam.jpg");
+	background-size: 100vw 100vh;
+}
+
+.pale-bg {
+	background-color: rgba(255, 255, 255, 0.5);
 }
 
 #donate {
