@@ -11,7 +11,7 @@ function checkisbn() {
 	sane = replaceAll(e.value, /[ -]/, '')
 
 	sane.length == 0 ?
-		(e.style.border = '1px solid cadetblue', e.style.background = "white") :
+		(e.style.border = '1px solid #01A5CA', e.style.background = "white") :
 			!IsNumeric(sane) || 10 !== sane.length && 13 !== sane.length ?
 				(e.style.border = "1px solid red", e.style.background = "pink") :
 				(e.style.border = "1px solid green", e.style.background = "lightgreen")
