@@ -1,4 +1,3 @@
-
 function highlight() {
 
 	for (q of document.getElementsByClassName('q'))
