@@ -49,12 +49,12 @@ echo '</div><br>';
 
 foreach ($res as $row) {
     echo "<table class=\"fixed-width\">\n";
+    echo "<tr><th>{$lang['title']}:</th><td><a class=\"fix-td\" href=\"details.php?un_id={$row['un_id']}&lang={$lang['code']}\">" . htmlspecialchars($row['title']) . "</a></td>\n";
     if(isset($row['isbn']) && $row['isbn'] != '')
         echo '<tr><th>ISBN:</th><td>' . $row['isbn'] . "</td>\n";
-    echo "<tr><th>{$lang['title']}:</th><td><p class=\"fix-td\">" . htmlspecialchars($row['title']) . "</p></td>\n";
     echo "<tr><th>{$lang['subject']}:</th><td>" . htmlspecialchars($row["subj"]) . "</td>\n";
     echo "<tr><th>{$lang['grade']}:</th><td>" . ($lang['classes'][$row['class']] ?: end($lang['classes'])) . "</td>\n";
-    echo "<tr><th onclick=\"alert({$row['un_id']})\">{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . $row['file_loc'] . "\">({$lang['here']})</a></td>\n";
+    echo "<tr><th>{$lang['dl']}:</th><td>" . '<a href = "https://uploads.librebook.xyz/' . $row['file_loc'] . "\">({$lang['here']})</a></td>\n";
 
     echo "</table><br>\n\n";
 }

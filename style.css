@@ -94,6 +94,11 @@ p.fix-td {
 	margin-right: auto;
 }
 
+.container {
+	margin: 64px;
+	margin-top: 0;
+}
+
 .right {
 	text-align: right;
 }
@@ -125,7 +130,7 @@ p.fix-td {
 }
 
 .footnote {
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .big {
@@ -151,6 +156,12 @@ p.fix-td {
 .no-dec {
 	text-decoration: none;
 	color: black;
+}
+
+.note {
+	font-size: 14px;
+	color: gray;
+	margin-top: 0px;
 }
 
 .spam-bg {
