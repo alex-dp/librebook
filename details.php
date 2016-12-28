@@ -41,12 +41,9 @@ foreach ($res as $row) {
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<div class="center title" id="title">
-			<a href="index.php" class="no-dec">
-				libr<font color="#01a5ca">e-book</font>
-			</a>
-		</div>
 
+		<?php echo title(); ?>
+		
 		<div class="container">
 			<h2 class="q">
 				<?php echo $title; ?>

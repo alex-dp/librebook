@@ -11,11 +11,7 @@ $lang = get_lang($_GET['lang'], $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<div class="center title" id="title">
-			<a href="index.php" class="no-dec">
-				libr<font color="#01a5ca">e-book</font>
-			</a>
-		</div>
+		<?php echo title(); ?>
 
 		<div class="center very-big">
 			<font color="#97DAE9">

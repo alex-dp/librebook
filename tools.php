@@ -29,4 +29,13 @@ function lstrip($string, $pre) {
         substr($string, strlen($pre)) : $string;
 }
 
+function title() {
+	return '
+	<div class="center title" id="title">
+		<a href="index.php" class="no-dec">
+			libr<font color="#01a5ca">e-book</font>
+		</a>
+	</div>';
+}
+
 ?>
